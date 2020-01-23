@@ -1,4 +1,4 @@
-## Nuxt.js による Firebase 開発
+## Nuxt.jsによるFirebase開発
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/2abd5c33-3bf4-48b1-b420-ad6d97694d79/deploy-status)](https://app.netlify.com/sites/books-nuxtjs-firebase/deploys)
 

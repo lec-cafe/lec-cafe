@@ -1,45 +1,45 @@
-# Vuex によるデータの管理
+# Vuexによるデータの管理
 
-REST APIを利用して Github からデータを取得する事ができましたが、
-API 通信には若干の時間がかかります。
+REST APIを利用してGithubからデータを取得する事ができましたが、
+API通信には若干の時間がかかります。
 
-例えば Issue の一覧ページから個別ページに遷移する場面を考えてみると、
-Issue の一覧ページでデータを取得して、また個別ページでもデータを取得して、
+例えばIssueの一覧ページから個別ページに遷移する場面を考えてみると、
+Issueの一覧ページでデータを取得して、また個別ページでもデータを取得して、
 再度一覧に戻ったタイミングでもまたデータの取得が必要になります。
 
-アプリケーションの仕様がゆるす限り、こうした API 通信結果のデータは
-可能な限りで再利用していくのが UI 設計的にも効率的です。
+アプリケーションの仕様がゆるす限り、こうしたAPI通信結果のデータは
+可能な限りで再利用していくのがUI設計的にも効率的です。
 
-Vue.js では アプリケーション内でデータを共有するための仕組みとして Vuex と呼ばれる仕組みが採用されています。
-Vuex を利用することで、複雑なアプリケーション内のデータをシンプルに共有することができるようになります。
+Vue.jsではアプリケーション内でデータを共有するための仕組みとしてVuexと呼ばれる仕組みが採用されています。
+Vuexを利用することで、複雑なアプリケーション内のデータをシンプルに共有することができるようになります。
 
-ここでは、先程取得した Issue 一覧のデータを Vuex に格納して、他のページで再利用する方法を考えてみましょう。
+ここでは、先程取得したIssue一覧のデータをVuexに格納して、他のページで再利用する方法を考えてみましょう。
 
 ## データをVuexに格納する
 
-Vuex Store は Vue.js で利用可能な データストアの構造です。
+Vuex StoreはVue.jsで利用可能なデータストアの構造です。
 
-複数のページや vue コンポーネントで、データを共有する際に非常に便利なデータモデルとなっています。
+複数のページやvueコンポーネントで、データを共有する際に非常に便利なデータモデルとなっています。
 
-Vuex でデータを管理するためには、以下の３つの仕組みを利用する必要があります。
+Vuexでデータを管理するためには、以下の3つの仕組みを利用する必要があります。
 
-- state : Vuex 上で管理されるデータ
-- mutation : state を操作する関数。同期的に動作する。
-- action : mutation を操作しながら実際のデータ操作ロジックを記述する非同期な関数
+- state : Vuex上で管理されるデータ
+- mutation : stateを操作する関数。同期的に動作する。
+- action : mutationを操作しながら実際のデータ操作ロジックを記述する非同期な関数
 
-Vuex では これらの state mutation action の ３つを組み合わせながら、
+Vuexではこれらのstate mutation actionの3つを組み合わせながら、
 アプリケーション全体で共有するデータを管理していきます。
 
 ![](/images/3/vuex.png)
 
 https://vuex.vuejs.org/ja/
 
-### Vuex Store の作成
+### Vuex Storeの作成
 
-issue 一覧のデータをページ間で共有できるように、Vuex Store を構築してみましょう。
+issue一覧のデータをページ間で共有できるように、Vuex Storeを構築してみましょう。
 
-Nuxt.js では、`store` フォルダに コードを配置するだけで、
-自動的にアプリケーションで利用可能な Vuex Store が構築されます。
+Nuxt.jsでは、`store` フォルダにコードを配置するだけで、
+自動的にアプリケーションで利用可能なVuex Storeが構築されます。
 
 まずは、`store/index.js` を作成して以下のようなコードを記述します。
 
@@ -71,13 +71,13 @@ export const actions = {
 ```
 
 ::: tip 
-初めて `store` フォルダ内に JS ファイルを作成した場合、
+初めて `store` フォルダ内にJSファイルを作成した場合、
 既存の `npm run dev` プロセスを再起動する必要があります。
 :::
 
-Vuex では、上記のような形で `exports` を使って state mutations actions をそれぞれ記述していきます。
+Vuexでは、上記のような形で `exports` を使ってstate mutations actionsをそれぞれ記述していきます。
 
-それぞれのコードを一つづつ確認していきましょう。
+それぞれのコードを1つづつ確認していきましょう。
 
 ```js
 export const state = () => {
@@ -87,8 +87,8 @@ export const state = () => {
 }
 ```
 
-state は vue コンポーネントから data 部分を抜き出したような構造です。 
-Vuex ステートの初期値を記述していきます。
+stateはvueコンポーネントからdata部分を抜き出したような構造です。 
+Vuexステートの初期値を記述していきます。
 
 ```js
 export const mutations = {
@@ -98,11 +98,11 @@ export const mutations = {
 }
 ```
 
-mutationsは state を変更するための関数です。
+mutationsはstateを変更するための関数です。
 第一引数に `state`を、第二引数に任意の値を受け取る事ができます。
 
-state の変更はすべてこの mutations 経由で行われるため、
-mutations の定義を確認すれば、state にどの様な操作が行われるのかひと目で確認することができるようになります。
+stateの変更はすべてこのmutations経由で行われるため、
+mutationsの定義を確認すれば、stateにどの様な操作が行われるのかひと目で確認することができるようになります。
 
 ```js
 export const actions = {
@@ -119,21 +119,21 @@ export const actions = {
 }
 ```
 
-actions は実際のアプリケーションロジックを含む、 state の操作関数です。
+actionsは実際のアプリケーションロジックを含む、 stateの操作関数です。
 
-actions は 第一引数に `ctx` を受け取り、中から `ctx.commit` `ctx.dispatch` などの関数を受け取る事ができます。
+actionsは第一引数に `ctx` を受け取り、中から `ctx.commit` `ctx.dispatch` などの関数を受け取る事ができます。
 
-`commit` は mutations を呼び出すための関数で、第一引数に mutations 名を、
-第二引数は、mutations 関数の 第二引数に渡されます。
+`commit` はmutationsを呼び出すための関数で、第一引数にmutations名を、
+第二引数は、mutations関数の第二引数に渡されます。
 
-`dispatch` は actions を呼び出すための関数で、他のactionをaction 内で呼び出す際に利用されます。
-第一引数は actions 名で、第二引数は、 actions 関数の第二引数に渡されます。
+`dispatch` はactionsを呼び出すための関数で、他のactionをaction内で呼び出す際に利用されます。
+第一引数はactions名で、第二引数は、 actions関数の第二引数に渡されます。
 
-## Vuex Store の利用
+## Vuex Storeの利用
 
-実際に Vuex Store が作成できたら 作成した actions を vue コンポーネントから利用していきましょう。
+実際にVuex Storeが作成できたら作成したactionsをvueコンポーネントから利用していきましょう。
 
-Issue 一覧画面で、この Vuex Store を利用する場合、`pages/index.vue` は以下のような形になります。
+Issue一覧画面で、このVuex Storeを利用する場合、`pages/index.vue` は以下のような形になります。
 
 ```js
 export default {
@@ -151,13 +151,13 @@ export default {
 }
 ```
 
-data で定義していた `issues` は Vuex Store からの参照で computed プロパティに置き換えられます。
+dataで定義していた `issues` はVuex Storeからの参照でcomputedプロパティに置き換えられます。
 
-データの取得は、 `this.$store.dispatch("fetchIssues")` として action をvue コンポーネント内部でコールします。
+データの取得は、 `this.$store.dispatch("fetchIssues")` としてactionをvueコンポーネント内部でコールします。
 
-同様に mutations もまた `this.$store.commit` を呼び出してコールすることができます。
+同様にmutationsもまた `this.$store.commit` を呼び出してコールすることができます。
 
-Issue の個別のページ `pages/issue/_id/index.vue` では以下のようなコードになります。
+Issueの個別のページ `pages/issue/_id/index.vue` では以下のようなコードになります。
 
 ```vue
 <template>
@@ -197,12 +197,12 @@ export default {
 </script>
 ```
 
-またこの場合、直接 詳細画面にアクセスした場合、一覧画面での mounted 処理は走らないため、
-Vuex のデータは空っぽです。
+またこの場合、直接詳細画面にアクセスした場合、一覧画面でのmounted処理は走らないため、
+Vuexのデータは空っぽです。
 
-データがないケースでエラーにならないよう created で一覧への遷移処理を追加しています。
+データがないケースでエラーにならないようcreatedで一覧への遷移処理を追加しています。
 
 ::: tip 
-上記のような state データの操作処理は、
-getter を用いて記述することでよりシンプルに記述することも可能です。
+上記のようなstateデータの操作処理は、
+getterを用いて記述することでよりシンプルに記述することも可能です。
 :::

@@ -1,29 +1,29 @@
 ---
 permalink: /netlify
 ---
-# Netlify を使ってWebサイトをUpする
+# Netlifyを使ってWebサイトをUpする
 
-Netlify を利用すれば、Netlify に自分のGitHub リポジトリからWebサイトをUPすることができます。
+Netlifyを利用すれば、Netlifyに自分のGitHubリポジトリからWebサイトをUPすることができます。
 
-## Netlify を利用する
+## Netlifyを利用する
 
-Netlify は GitHub と連携して静的サイトの作成ができる Web サービスです。
+NetlifyはGitHubと連携して静的サイトの作成ができるWebサービスです。
 
-以下の URL から Login を選択して Github アカウントを利用したサインアップが可能です。
+以下のURLからLoginを選択してGithubアカウントを利用したサインアップが可能です。
 
 https://www.netlify.com/
 
-### Netlify でサイトを作成する
+### Netlifyでサイトを作成する
 
-Netlify にログインしたら、 `New site from Git` から GitHub のリポジトリを選択します。
+Netlifyにログインしたら、 `New site from Git` からGitHubのリポジトリを選択します。
 
 
-リポジトリ選択後は、以下のような設定で `Deploy Site` をクリックすると Web サイトの生成が始まります。
+リポジトリ選択後は、以下のような設定で `Deploy Site` をクリックするとWebサイトの生成が始まります。
 
 - Build Command: サイトにビルドコマンドを利用している場合、コマンドを記載
-- Publish Directory: Web に公開するフォルダ名を記載
+- Publish Directory: Webに公開するフォルダ名を記載
 
-## Netlify の Deploy 設定
+## NetlifyのDeploy設定
 
 ### ブランチデプロイ
 
@@ -36,9 +36,9 @@ Netlify にログインしたら、 `New site from Git` から GitHub のリポ�
 - `None production` ブランチのみをデプロイする
 - `Let me add individual branches` デプロイするブランチを個別に指定する
 
-デフォルトでは `None` に設定されており、production ブランチ(通常 `master`) のみが
-Netlify にデプロイされます。
+デフォルトでは `None` に設定されており、productionブランチ（通常 `master`) のみが
+Netlifyにデプロイされます。
 
 `All` や `Let me add individual branches` で個別にブランチを設定するなどすることで、
-`master` 以外のブランチもNetlify での デプロイ対象に含めることが可能になり、
+`master` 以外のブランチもNetlifyでのデプロイ対象に含めることが可能になり、
 ブランチごとのサイトプレビューを `Deploy` のセクションから確認することができるようになります。

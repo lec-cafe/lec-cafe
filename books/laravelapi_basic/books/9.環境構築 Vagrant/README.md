@@ -1,23 +1,23 @@
 ---
 ---
 
-# Homestead による環境構築 
+# Homesteadによる環境構築 
 
-Homestead は Laravel の提供する Vagrant 環境キットで、
-Laravel を動作させるために必要なソフトウェアが一通りインストールされています。
+HomesteadはLaravelの提供するVagrant環境キットで、
+Laravelを動作させるために必要なソフトウェアが一通りインストールされています。
 
-Vagrant はローカル環境構築を行うためのツールで、
-仮想環境を用いて PC 上に Linux 環境を構築することができます。
+Vagrantはローカル環境構築を行うためのツールで、
+仮想環境を用いてPC上にLinux環境を構築することができます。
 
-構築を進めるには 以下より Virtualbox と Vagrant をインストールする必要があります。
+構築を進めるには以下よりVirtualboxとVagrantをインストールする必要があります。
 
 https://www.virtualbox.org/wiki/Downloads
 
 https://www.vagrantup.com/downloads.html
 
-## Vagrant のセットアップ
+## Vagrantのセットアップ
 
-まずは、以下のコマンドを実行して Vagrant の box ファイルをダウンロードします。
+まずは、以下のコマンドを実行してVagrantのboxファイルをダウンロードします。
 
 
 ```bash
@@ -25,11 +25,11 @@ $ vagrant box add laravel/homestead
 ```
 
 ::: tip
-Vagrant の box ファイルダウンロードには、ネットワークの状況にもよりますが、
+Vagrantのboxファイルダウンロードには、ネットワークの状況にもよりますが、
 非常に時間がかかるケースがあります。
 :::
 
-ダウンロードを進めながら、Homestead のプロジェクトテンプレートをダウンロードします。
+ダウンロードを進めながら、Homesteadのプロジェクトテンプレートをダウンロードします。
 
 ```bash
 $ git clone https://github.com/laravel/homestead.git ~/Homestead
@@ -44,27 +44,27 @@ $ git checkout release
 
 最後に、セットアップのスクリプトを実行します。
 
-Mac の場合は、以下のようなコマンドで、
+Macの場合は、以下のようなコマンドで、
 
 ```bash
 // Mac / Linux...
 $ bash init.sh
 ```
 
-Windows の場合は、以下のようなコマンドになります。
+Windowsの場合は、以下のようなコマンドになります。
 
 ```bash
 // Windows...
 $ init.bat
 ```
 
-## Homestead の設定
+## Homesteadの設定
 
 セットアップスクリプトを作成して、作成される `Homestead.yaml` は、
-Homestead 環境の設定ファイルです。
+Homestead環境の設定ファイルです。
 
-`folders` のセクションには、Vagrant の Shared Folders の設定を記述するようになっており、
-ローカルの PC パスと、Vagrant 内の仮想環境のパスを同期させることができます。
+`folders` のセクションには、VagrantのShared Foldersの設定を記述するようになっており、
+ローカルのPCパスと、Vagrant内の仮想環境のパスを同期させることができます。
 
 ```bash
 folders:
@@ -72,7 +72,7 @@ folders:
       to: /home/vagrant/code
 ```
 
-上記のような設定の場合、 vagrant 内の `/home/vagrant/code` と ローカルの `~/code` フォルダとが同期され、
+上記のような設定の場合、 vagrant内の `/home/vagrant/code` とローカルの `~/code` フォルダとが同期され、
 同じ内容のファイルが展開されるようになります。
 
 ファイルを同期するために以下のコマンドで、同期用のフォルダを作成しておきましょう。
@@ -81,15 +81,15 @@ folders:
 $ mkdir ~/code
 ```
 
-## Vagrant の設定
+## Vagrantの設定
 
-Vagrant 仮想環境を立ち上げるには、`Vagrantfile` のあるフォルダで、`vagrant up` コマンドを実行します。
+Vagrant仮想環境を立ち上げるには、`Vagrantfile` のあるフォルダで、`vagrant up` コマンドを実行します。
 
 ```bash
 $ vagrant up 
 ```
 
-立ち上がった Vagrant 環境には `vagrant ssh` コマンドでログインすることができます。
+立ち上がったVagrant環境には `vagrant ssh` コマンドでログインすることができます。
 
 ```bash
 $ vagrant ssh
@@ -101,8 +101,8 @@ $ vagrant ssh
 :::
 
 ::: tip
-ssh でログインすると コンソールの表示が `vagrant@` に切り替わります。
-vagrant から抜けるには `exit` コマンドを実行します。
+sshでログインするとコンソールの表示が `vagrant@` に切り替わります。
+vagrantから抜けるには `exit` コマンドを実行します。
 :::
 
 
@@ -118,33 +118,33 @@ $ vagrant halt
 $ vagrant destroy
 ```
 
-## Laravel 環境のセットアップ
+## Laravel環境のセットアップ
 
-Vagrant 環境の用意ができたら、実際に Laravel の セットアップを進めていきましょう。
+Vagrant環境の用意ができたら、実際にLaravelのセットアップを進めていきましょう。
 
 ```bash
 $ vagrant ssh 
 ```
 
-cd で ローカルとコード同期されている、 `code` フォルダまで移動して、
-`laravel new` コマンドで Laravel の初期構成をセットアップします。
+cdでローカルとコード同期されている、 `code` フォルダまで移動して、
+`laravel new` コマンドでLaravelの初期構成をセットアップします。
 
 ```
 $ cd code
 $ laravel new 
 ```
 
-最後にブラウザで `http://homestead.test` または `http://192.168.10.10/` にアクセスして Laravel の初期画面が表示されたらセットアップは完了です。
+最後にブラウザで `http://homestead.test` または `http://192.168.10.10/` にアクセスしてLaravelの初期画面が表示されたらセットアップは完了です。
 
 ### ローカルのデータベースに接続する
 
-デフォルトの 構成では、 MySQL データベースへの接続設定がセットアップされています。
+デフォルトの構成では、 MySQLデータベースへの接続設定がセットアップされています。
 
-MySQL Workbench などのツールを利用して、データベースの中身が見れるようにしておきましょう。
+MySQL Workbenchなどのツールを利用して、データベースの中身が見れるようにしておきましょう。
 
 https://dev.mysql.com/downloads/workbench/
 
-ツールがダウンロードできたら、以下の接続情報で Vagrant 内のデータベースに接続することができます。
+ツールがダウンロードできたら、以下の接続情報でVagrant内のデータベースに接続することができます。
 
 - host : `127.0.0.1`
 - port : `33060` 
@@ -152,7 +152,7 @@ https://dev.mysql.com/downloads/workbench/
 - password : `secret`
 
 ::: tip 
-PostgreSQL を利用する場合は ポート番号 `54320` を利用します。
+PostgreSQLを利用する場合はポート番号 `54320` を利用します。
 ホスト名、ユーザ名、パスワードは同じものが利用可能です。
 :::
 

@@ -1,10 +1,10 @@
-# 環境変数と Dotenv の導入
+# 環境変数とDotenvの導入
 
-## Nuxt.js における 環境変数
+## Nuxt.jsにおける環境変数
 
-Nuxt.js では、環境変数を利用したプログラムを記述することが可能です。
+Nuxt.jsでは、環境変数を利用したプログラムを記述することが可能です。
 
-JavaScript において環境変数は、`process.env` を利用してアクセスすることが可能です。
+JavaScriptにおいて環境変数は、`process.env` を利用してアクセスすることが可能です。
 
 ```js
 const token = process.env.SERVICE_TOKEN
@@ -13,7 +13,7 @@ const token = process.env.SERVICE_TOKEN
 環境変数は、アプリケーションの動作する環境に応じて設定が可能なため、
 開発環境・テスト環境・本番環境などの環境毎に変化させたいパラメータなどを設定するのに便利です。
 
-## dotenv モジュールの活用
+## dotenvモジュールの活用
 
 サーバ上の環境変数はサーバ側の設定で調整することが可能ですが、
 
@@ -28,7 +28,7 @@ $ npm install --dev @nuxtjs/dotenv
 
 https://typescript.nuxtjs.org/ja/
 
-Nuxt.js で TypeScript を利用するには、まずモジュールのインストールを行い、
+Nuxt.jsでTypeScriptを利用するには、まずモジュールのインストールを行い、
 `nuxt.config.js` の `buildModules` セクションにモジュールを追加します。
 
 

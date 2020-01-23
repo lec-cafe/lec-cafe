@@ -1,13 +1,13 @@
-# Promise と async await
+# Promiseとasync await
 
-JavaScript で非同期処理を行う際に重要になる Promise と Async Await の仕組みについて理解しておきましょう。
+JavaScriptで非同期処理を行う際に重要になるPromiseとAsync Awaitの仕組みについて理解しておきましょう。
 
 ## Promise
 
-Promise は 非同期な処理を JavaScript で表現するための共通のフォーマットです。
+Promiseは非同期な処理をJavaScriptで表現するための共通のフォーマットです。
 
-Promise は Promise クラスを利用して作成する事ができます。
-下記は一秒後に処理が完了する Promise です。
+PromiseはPromiseクラスを利用して作成する事ができます。
+下記は一秒後に処理が完了するPromiseです。
 
 ```js 
 const promise = new Promise( (resolve)=>{
@@ -17,11 +17,11 @@ const promise = new Promise( (resolve)=>{
 })
 ```
 
-通常 Promise を自分で作成するケースは稀かもしれません。
-多くの JavaScript ライブラリで、 非同期の処理は Promise ベースで実装されており 
-通常はこうしたライブラリから 生成された promise のオブジェクトを受け取るケースがほとんどです。
+通常Promiseを自分で作成するケースは稀かもしれません。
+多くのJavaScriptライブラリで、 非同期の処理はPromiseベースで実装されており 
+通常はこうしたライブラリから生成されたpromiseのオブジェクトを受け取るケースがほとんどです。
 
-生成された promise オブジェクトは、`then` を呼び出すことで、処理完了時の動作を定義することができます。
+生成されたpromiseオブジェクトは、`then` を呼び出すことで、処理完了時の動作を定義することができます。
 
 ```js
 promise.then((result)=>{
@@ -30,9 +30,9 @@ promise.then((result)=>{
 })
 ```
 
-`then` で定義する関数の第一引数には、 resolve が呼び出された際の引数が格納されます。
-また、 then は チェインすることも可能で、チェインされたthen では直前の then で return した値が
-次の then の関数の第一引数に渡されます。
+`then` で定義する関数の第一引数には、 resolveが呼び出された際の引数が格納されます。
+また、 thenはチェインすることも可能で、チェインされたthenでは直前のthenでreturnした値が
+次のthenの関数の第一引数に渡されます。
 
 ```js
 const promise = new Promise( (resolve)=>{
@@ -48,7 +48,7 @@ promise.then((result)=>{
 })
 ```
 
-Promise 内で throw された エラーは、 catch を利用して受け取ることができます。
+Promise内でthrowされたエラーは、 catchを利用して受け取ることができます。
 
 ```js
 promise.catch((e)=>{
@@ -58,9 +58,9 @@ promise.catch((e)=>{
 
 ## async await 
 
-async await は ES2017 で追加された、 非同期処理の新しい書き方です。
+async awaitはES2017で追加された、 非同期処理の新しい書き方です。
 
-async を付与した関数(async function) は 自動的に Promise を返却するよう変換されます。
+asyncを付与した関数（async function) は自動的にPromiseを返却するよう変換されます。
 
 ```js
 const myFunc = async () => {
@@ -74,10 +74,10 @@ const myFunc = () => {
 }
 ```
 
-また async function の内部では await キーワードが利用可能です。
+またasync functionの内部ではawaitキーワードが利用可能です。
 
-`await promise` の形式でコードを記述することで、 then を記述することなく、 
-promise の処理完了を待つことができます。
+`await promise` の形式でコードを記述することで、 thenを記述することなく、 
+promiseの処理完了を待つことができます。
 
 ```js
 const promise = new Promise( (resolve)=>{

@@ -1,11 +1,11 @@
 # アプリケーションの作成
 
-## Nuxt.js のセットアップ
+## Nuxt.jsのセットアップ
 
-Firebase でのアプリケーション構築を始めるにあたって、
-Nuxt.js でアプリケーションを作成するための環境構築から始めていきましょう。
+Firebaseでのアプリケーション構築を始めるにあたって、
+Nuxt.jsでアプリケーションを作成するための環境構築から始めていきましょう。
 
-Nuxt.js でアプリケーション開発を進める上で、現在最も一般的な方法は `npx` を利用した環境構築です。
+Nuxt.jsでアプリケーション開発を進める上で、現在最も一般的な方法は `npx` を利用した環境構築です。
 
 `npx create-nuxt-app {project_name}` の形式でコマンドを実行すると対話形式でプロジェクトの作成が進みます。
 エンターを押しながら、プロジェクトの構築を進めてください。
@@ -20,10 +20,10 @@ $ npm run dev
 
 アプリケーションを作成するにあたって、まずは画面を作成してみましょう。
 
-今回はコーディングを簡単にすすめるために、 Twitter Bootstrap を導入します。
+今回はコーディングを簡単にすすめるために、 Twitter Bootstrapを導入します。
 
-Nuxt.js で Twitter Bootstrap を利用する場合、
-`nuxt.config.js` の `head.link` セクションに Bootstrap の CDN を追加するのが簡単です。
+Nuxt.jsでTwitter Bootstrapを利用する場合、
+`nuxt.config.js` の `head.link` セクションにBootstrapのCDNを追加するのが簡単です。
 
 ```js
 module.exports = {
@@ -38,17 +38,17 @@ module.exports = {
 }
 ```
 
-### vue ファイルの編集
+### vueファイルの編集
 
-Nuxt.js の初期画面は `/layout/default.vue` と `/pages/index.vue` によって作成されています。
+Nuxt.jsの初期画面は `/layout/default.vue` と `/pages/index.vue` によって作成されています。
 
-Vue.js で利用される この `.vue` のファイルは、template / script / style の ３つの要素からなるファイルで、
-HTML / JS / CSS を一つのファイルにまとめて記述することができます。
+Vue.jsで利用されるこの `.vue` のファイルは、template / script / styleの3つの要素からなるファイルで、
+HTML / JS / CSSを1つのファイルにまとめて記述することができます。
 
 `layout/default.vue` は、複数のルートで共通で利用されるレイアウト定義です。
 
 複数のルートを作成しても、`layout/default.vue` に記述された内容は全てのページで展開され、
-ページごとに記述したコンポーネントの内容は レイアウトファイルの `<nuxt/>` 内に展開されます。
+ページごとに記述したコンポーネントの内容はレイアウトファイルの `<nuxt/>` 内に展開されます。
 
 ここでは、以下のようにヘッダをつけて `layout/default.vue` を編集しておきましょう。
 
@@ -77,8 +77,8 @@ export default {
 
 次にページの本体を編集します。 
 
-Nuxt.js では、`/pages` フォルダに vue ファイルを作成すると、ページとしてそれを利用することができます。
-vue ファイルの URL がそのまま ページのアドレスとなるため、直感的にページを作成していくことができます。
+Nuxt.jsでは、`/pages` フォルダにvueファイルを作成すると、ページとしてそれを利用することができます。
+vueファイルのURLがそのままページのアドレスとなるため、直感的にページを作成していくことができます。
 
 トップページたる `/pages/index.vue` は以下のような形で実装してみましょう。
 
@@ -173,22 +173,22 @@ export default {
 
 ログインやコメントの追加を試してアプリケーションが動作することを確認してみましょう。
 
-## Vuex によるデータ設計
+## Vuexによるデータ設計
 
 画面の構築が完了したら実際にアプリケーションのロジックを組み込んでいきましょう。
 
-SPA のように複数ページ構成になりうるアプリケーションの場合、
-データのロジックを別ファイルに切り分けて ページ間で共有する処理はとても重要になります。
+SPAのように複数ページ構成になりうるアプリケーションの場合、
+データのロジックを別ファイルに切り分けてページ間で共有する処理はとても重要になります。
 
-Vue.js におけるデータ管理ロジックとしては、Vuex を用いるやり方が一般的で、
-Nuxt.js でもこれを利用することが可能です。
+Vue.jsにおけるデータ管理ロジックとしては、Vuexを用いるやり方が一般的で、
+Nuxt.jsでもこれを利用することが可能です。
 
-## Vuex Store の作成
+## Vuex Storeの作成
 
-Vuex Store は アプリケーションで使用するデータの定義と、
-データ操作に関するロジックをまとめた JS モジュールです。
+Vuex Storeはアプリケーションで使用するデータの定義と、
+データ操作に関するロジックをまとめたJSモジュールです。
 
-Nuxt.js で Vuex を使用する場合、 `store/index.js` を作成し、以下の内容を記述します。
+Nuxt.jsでVuexを使用する場合、 `store/index.js` を作成し、以下の内容を記述します。
 
 ```js
 export const state = () => {
@@ -229,17 +229,17 @@ export const actions = {
 }
 ```
 
-Vuex では state, mutation, actions の 3 つを利用して、データの処理を記述します。
+Vuexではstate, mutation, actionsの3つを利用して、データの処理を記述します。
 
-state では管理するデータを記述し、 mutations では state へのデータ操作を記述、
-actions では、実際のアプリケーションのロジックを記述します。」
+stateでは管理するデータを記述し、 mutationsではstateへのデータ操作を記述、
+actionsでは、実際のアプリケーションのロジックを記述します」
 
-### Vuex Store の利用
+### Vuex Storeの利用
 
-Vuex Store が作成できたら、`.vue` コンポーネントで記載されたページから 
-Vuex Store を利用してみましょう。
+Vuex Storeが作成できたら、`.vue` コンポーネントで記載されたページから 
+Vuex Storeを利用してみましょう。
 
-Vuex Store 内のデータを利用する場合, computed プロパティを利用して以下のように記述します。
+Vuex Store内のデータを利用する場合、 computedプロパティを利用して以下のように記述します。
 
 ```js
 export default {
@@ -263,9 +263,9 @@ export default {
 }
 ```
 
-data で記述していた `user` や `posts` は computed プロパティを利用して vuex 側に記述することができるようになりました。
+dataで記述していた `user` や `posts` はcomputedプロパティを利用してvuex側に記述することができるようになりました。
  
-処理の部分では、actions を呼び出すための dispatch 関数を利用して、以下のように記述することが可能です。
+処理の部分では、actionsを呼び出すためのdispatch関数を利用して、以下のように記述することが可能です。
 
 ```js
 export default {
@@ -287,6 +287,6 @@ export default {
 }
 ```
 
-Vuex にコードを移行して画面が正常に動作すれば、画面の実装は完了です！
+Vuexにコードを移行して画面が正常に動作すれば、画面の実装は完了です！
 
-実際に Firebase を利用しながらデータを処理してみましょう。
+実際にFirebaseを利用しながらデータを処理してみましょう。

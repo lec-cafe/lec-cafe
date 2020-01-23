@@ -1,25 +1,25 @@
 ---
 ---
 
-# REST API の Unit テスト
+# REST APIのUnitテスト
 
-HTML を生成するページアプリケーションでは、
-ビューロジックの変動により HTML が頻繁に変化しやすいため E2E テストが行いづらいという欠点がありました。
+HTMLを生成するページアプリケーションでは、
+ビューロジックの変動によりHTMLが頻繁に変化しやすいためE2Eテストが行いづらいという欠点がありました。
 
-これに対して JSON を返却する REST API はビューロジックによるレスポンスの変更を受けにくく、
-比較的 簡単に E2E テストを実行する事ができます。
+これに対してJSONを返却するREST APIはビューロジックによるレスポンスの変更を受けにくく、
+比較的簡単にE2Eテストを実行する事ができます。
 
-Laravel では REST API を用いたアプリケーションで、
-簡単にテストケースを記述して Action のテストを行う仕組みが用意されています。
+LaravelではREST APIを用いたアプリケーションで、
+簡単にテストケースを記述してActionのテストを行う仕組みが用意されています。
 
-Laravel を通じて REST API の自動テストを行う手法を確認していきましょう。
+Laravelを通じてREST APIの自動テストを行う手法を確認していきましょう。
 
-## PHPUnit のテストを実行する
+## PHPUnitのテストを実行する
 
-まずは Laravel に付属敷いている PHPUnit のテストの実行方法を確認しておきましょう。
+まずはLaravelに付属敷いているPHPUnitのテストの実行方法を確認しておきましょう。
 
-Laravel の環境ではデフォルトで PHPUnit がインストールされているため、
-`./vendor/bin/phpunit` コマンドで ユニットテストを実行できます。
+Laravelの環境ではデフォルトでPHPUnitがインストールされているため、
+`./vendor/bin/phpunit` コマンドでユニットテストを実行できます。
 
 ```php
 $ ./vendor/bin/phpunit
@@ -34,7 +34,7 @@ OK (2 tests, 2 assertions)
 
 テスト実行環境をカスタマイズしたい場合には、 リポジトリルートの `phpunit.xml` を利用します。
 
-例えば テスト実行時の環境変数は `phpunit.php.env` のセクションを追加することで定義できます。
+例えばテスト実行時の環境変数は `phpunit.php.env` のセクションを追加することで定義できます。
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -73,7 +73,7 @@ OK (2 tests, 2 assertions)
 ```
 
 ::: tip
-Telescope を導入している環境では、`ReflectionException: Class env does not exist`
+Telescopeを導入している環境では、`ReflectionException: Class env does not exist`
 のエラーが表示されるかも知れません。
 これは[既知の障害](https://github.com/laravel/telescope/issues/347)に起因するもののため、
 `<env name="TELESCOPE_ENABLED" value="false"/>` を追加して、テスト中のTelescopeを無効化するよう調整が必要です。
@@ -84,12 +84,12 @@ Telescope を導入している環境では、`ReflectionException: Class env do
 テストのコードは、 `tests`フォルダ内に記述していきます。
 
 `tests` フォルダには `Feature` と `Unit` のディレクトリが用意されており、
-以下のような形で 使い分けがされるケースがほとんどです。
+以下のような形で使い分けがされるケースがほとんどです。
 
-- `Feature` REST API やページなどのリクエスト単位のテスト
-- `Unit` 作成したService などのユニットテスト
+- `Feature` REST APIやページなどのリクエスト単位のテスト
+- `Unit` 作成したServiceなどのユニットテスト
 
-例えばこの他に、特定のサービスとの連携など 独自のフォルダ構成のテストを追加する場合には、
+例えばこの他に、特定のサービスとの連携など独自のフォルダ構成のテストを追加する場合には、
 `phpunit.xml` にてテストのフォルダを追加することができます。
 
 ```xml
@@ -110,17 +110,17 @@ Telescope を導入している環境では、`ReflectionException: Class env do
 
 上記の例では `./tests/MailSystem` というテストのフォルダを追加しています。
 
-testsuite 要素に `name` を付与することで、 testsuite の単位でテストを実行することが可能になります。
+testsuite要素に `name` を付与することで、 testsuiteの単位でテストを実行することが可能になります。
 
-例えば `Feature` の testsuite のみを実行するには以下のように testsuite オプションを付与してコマンドを実行します。
+例えば `Feature` のtestsuiteのみを実行するには以下のようにtestsuiteオプションを付与してコマンドを実行します。
 
 ```bash
 ./vendor/bin/phpunit --testsuite Feature
 ```
 
-## REST API のテストを実行する
+## REST APIのテストを実行する
 
-PHPUnit の準備が整ったところで実際にテストを記述していきましょう。
+PHPUnitの準備が整ったところで実際にテストを記述していきましょう。
 
 `tests/Feature/TaskAPITest.php` を作成して、以下のような形でテストのコードを記述します。
 
@@ -154,17 +154,17 @@ class TaskAPITest extends TestCase
 レスポンスのステータスコードが `200` になることを検証しています。
 
 ::: tip
-Laravel のテストで get などを使ったリクエストのテストは、
-実際には サーバ経由でリクエストを処理しているわけではないので、厳密な意味では E2E テストとは異なります。 
+Laravelのテストでgetなどを使ったリクエストのテストは、
+実際にはサーバ経由でリクエストを処理しているわけではないので、厳密な意味ではE2Eテストとは異なります。 
 :::
 
-### Request を発行する
+### Requestを発行する
 
 `Tests\TestCase` を継承したテストクラスの中では、
-`$this->json` を経由して、任意の URL の アクションを実行できます。
+`$this->json` を経由して、任意のURLのアクションを実行できます。
 
 第三引数ではリクエストボディのパラメータを配列で指定できる他、
-第四引数を用いて リクエストヘッダを付与することも可能です。
+第四引数を用いてリクエストヘッダを付与することも可能です。
 
 ```php
     public function testBasicTest()
@@ -173,15 +173,15 @@ Laravel のテストで get などを使ったリクエストのテストは、
     }
 ```
 
-json メソドは戻り値として $response のオブジェクトを返します。
+jsonメソドは戻り値として $responseのオブジェクトを返します。
 
 ::: tip
 `$this->json` は `$this->get` や `$this->call` などのリクエストと異なり、
-API リクエストに適した Accept ヘッダなどを付与するため、
-より実際の API リクエストに近い形でリクエスト処理を行うことができます。
+APIリクエストに適したAcceptヘッダなどを付与するため、
+より実際のAPIリクエストに近い形でリクエスト処理を行うことができます。
 :::
 
-### Response を検証する
+### Responseを検証する
 
 取得した `$response` を用いて様々な検証が可能です。
 
@@ -196,9 +196,9 @@ API リクエストに適した Accept ヘッダなどを付与するため、
     }
 ```
 
-`$response->decodeResponseJson()` は JSON 形式でリクエストボディを取得する関数です。
+`$response->decodeResponseJson()` はJSON形式でリクエストボディを取得する関数です。
 
-JSON 形式で生成されたリクエストボディを、パースされた配列の状態で取得できるため、
+JSON形式で生成されたリクエストボディを、パースされた配列の状態で取得できるため、
 取得したデータを用いた様々な検証を行う事ができます。
 
 ```php
@@ -216,14 +216,14 @@ use PHPUnit\Framework\Assert;
     }
 ```
 
-PHPUnit で独自の検証を行う場合には、 `PHPUnit\Framework\Assert` クラスを利用します。
+PHPUnitで独自の検証を行う場合には、 `PHPUnit\Framework\Assert` クラスを利用します。
 
-Assert クラスには様々な検証用の関数が用意されていますが、主に以下のようなものを抑えておけば問題ないでしょう。
+Assertクラスには様々な検証用の関数が用意されていますが、主に以下のようなものを抑えておけば問題ないでしょう。
 
-- Assert::assertTrue($a) `$a` が true であることを検証する。
+- Assert::assertTrue($a) `$a` がtrueであることを検証する。
 - Assert::assertEquals($a, $b) `$a` と `$b` が等しいことを検証する。
 
 ::: tip 
-これまで作成した API のテストを実際に作成して、
+これまで作成したAPIのテストを実際に作成して、
 自動テストの記述方法を確認してみましょう。
 :::

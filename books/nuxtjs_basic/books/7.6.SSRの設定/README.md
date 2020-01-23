@@ -1,20 +1,20 @@
-# SSR の設定
+# SSRの設定
 
-Nuxt.js の 特徴の一つとして SSR の対応があります。
+Nuxt.jsの特徴の1つとしてSSRの対応があります。
 
-SSR はブラウザ以外の場所で Vue.js のコードを動かす仕組みで、
-Node のサーバを用いて Nuxt.js アプリケーションを動作させる際以外にも、
+SSRはブラウザ以外の場所でVue.jsのコードを動かす仕組みで、
+Nodeのサーバを用いてNuxt.jsアプリケーションを動作させる際以外にも、
 `npm run generate` でページを静的に出力する際に重要になってくる機能です。
 
-SSR の機能を利用することで、`npm run generate` で生成されるページに、
-APIのデータを埋め込む事ができるようになり、 SEO や OGP の生成に役立てることができるようになります。
+SSRの機能を利用することで、`npm run generate` で生成されるページに、
+APIのデータを埋め込む事ができるようになり、 SEOやOGPの生成に役立てることができるようになります。
 
 ## fetch / asyncData 
 
-`pages` フォルダ内の .vue コンポーネントでは `fetch` や `asyncData` といった関数を定義することが可能で、
-このセクションを用いて SSR 時の挙動を制御することができます。
+`pages` フォルダ内の .vueコンポーネントでは `fetch` や `asyncData` といった関数を定義することが可能で、
+このセクションを用いてSSR時の挙動を制御することができます。
 
-fetch の例
+fetchの例
 
 ```vue
 <template>
@@ -30,7 +30,7 @@ export default {
 </script>
 ```
 
-asyncData の例
+asyncDataの例
 
 ```js
 export default {
@@ -43,16 +43,16 @@ export default {
 }
 ```
 
-fetch は SSR のフェーズで任意の動作を行うことができるため、
-単純にVuex Store のアクションなどを呼び出すのに向いています。
+fetchはSSRのフェーズで任意の動作を行うことができるため、
+単純にVuex Storeのアクションなどを呼び出すのに向いています。
 
-asyncData は SSR のフェーズで動作し、return したオブジェクトを data のオブジェクトとマージすることができます。
+asyncDataはSSRのフェーズで動作し、returnしたオブジェクトをdataのオブジェクトとマージすることができます。
 
-fetch も asyncData もどちらのセクションも、ブラウザ上では動作することはありません。
+fetchもasyncDataもどちらのセクションも、ブラウザ上では動作することはありません。
 
-## head の設定
+## headの設定
 
-`pages` フォルダ内の .vue コンポーネントでは `head` 関数を定義して、head要素内の値をカスタマイズすることが可能です。
+`pages` フォルダ内の .vueコンポーネントでは `head` 関数を定義して、head要素内の値をカスタマイズすることが可能です。
 
 ```vue
 <template>
@@ -78,6 +78,6 @@ export default {
 </script>
 ```
 
-head 関数内で 例えば　APIの情報などを取得したい場合には、
+head関数内で例えば　APIの情報などを取得したい場合には、
 `fetch` や `asyncData` などのSSRフェーズの関数を利用してデータを準備する必要があります。 
 

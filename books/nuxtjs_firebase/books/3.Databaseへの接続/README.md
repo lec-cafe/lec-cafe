@@ -1,24 +1,24 @@
-# Database の利用
+# Databaseの利用
 
-ログイン認証の処理ができたら、chat のデータをデータベースに格納し、
+ログイン認証の処理ができたら、chatのデータをデータベースに格納し、
 複数のユーザでデータを共有できるようにしてみましょう。
 
-## Firebase における Database 
+## FirebaseにおけるDatabase 
 
-Firebase では 以下 2種類のデータベースが用意されています。
+Firebaseでは以下2種類のデータベースが用意されています。
 
 - Firebase Realtime Database 
 - Firebase Cloud Firestore
 
-Cloud Firestore はクエリの機能などが強化された Database です。
+Cloud Firestoreはクエリの機能などが強化されたDatabaseです。
 
-このドキュメントでも Cloud Firestore を利用したデータ操作を紹介していきます。
+このドキュメントでもCloud Firestoreを利用したデータ操作を紹介していきます。
 
-まずは Firebase Console 上で Cloud Firestore を有効化しておきましょう。
+まずはFirebase Console上でCloud Firestoreを有効化しておきましょう。
 
-## Database にデータを追加する。
+## Databaseにデータを追加する
 
-Cloud Firestore の操作には、 `firebase.firestore()` が利用されます。
+Cloud Firestoreの操作には、 `firebase.firestore()` が利用されます。
 
 `firebase.firestore().collection('collection_name').add` を利用して、
 データベースにデータを追加することが可能です。
@@ -50,18 +50,18 @@ Cloud Firestore の操作には、 `firebase.firestore()` が利用されます�
 </script>
 ```
 
-submitPost の処理内で、データの追加を Vuex から Cloud Firestore に書き換えています。
+submitPostの処理内で、データの追加をVuexからCloud Firestoreに書き換えています。
 
-add では任意のコレクション(テーブル) に一つのデータを追加することが可能となっており、
-実際に画面を操作して、posts コレクションにデータを追加することが可能です。
+addでは任意のコレクション（テーブル） に1つのデータを追加することが可能となっており、
+実際に画面を操作して、postsコレクションにデータを追加することが可能です。
 
-追加されたデータは Firestore の管理画面上から確認することができるので、
-Firebase Cosole からその動作を確認してみましょう。
+追加されたデータはFirestoreの管理画面上から確認することができるので、
+Firebase Cosoleからその動作を確認してみましょう。
 
-## Database からデータを取得する
+## Databaseからデータを取得する
  
 データの追加ができるようになったら、一覧で表示するデータを
-Database から取得したデータに置き換えてみましょう。
+Databaseから取得したデータに置き換えてみましょう。
 
 ```vue
 <script>
@@ -125,13 +125,13 @@ Database から取得したデータに置き換えてみましょう。
 </script>
 ```
 
-変更点は 以下の 3つです。
+変更点は以下の3つです。
 
-- posts を vuex から data に移動
-- methods に load 関数を追加
-- mounted と submitPost で load をコール
+- postsをvuexからdataに移動
+- methodsにload関数を追加
+- mountedとsubmitPostでloadをコール
 
-load 関数では、get を利用して、データの取得を行うことができます。
+load関数では、getを利用して、データの取得を行うことができます。
 
 ```js
 const snapshot = await db.collection('posts')
@@ -147,12 +147,12 @@ if(snapshot.empty){
 }
 ```
 
-取得したオブジェクトは QuerySnapshot オブジェクトと呼ばれるもので、
+取得したオブジェクトはQuerySnapshotオブジェクトと呼ばれるもので、
 `docs` の中から配列形式でデータを取得することが可能です。
 
-配列内のデータは、QueryDocumentSnapshot オブジェクトと呼ばれるもので、
-data 関数をコールしてそれぞれのデータを取得することができます。
+配列内のデータは、QueryDocumentSnapshotオブジェクトと呼ばれるもので、
+data関数をコールしてそれぞれのデータを取得することができます。
 
-結果オブジェクトに関する詳しい API は以下の資料から確認可能です。
+結果オブジェクトに関する詳しいAPIは以下の資料から確認可能です。
 
 https://googleapis.dev/nodejs/firestore/latest/index.html

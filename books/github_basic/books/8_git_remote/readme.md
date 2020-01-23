@@ -2,19 +2,19 @@
 permalink: /git_remote
 ---
 
-# git remote 
+# Git remote 
 
 ## リモートを管理する 
 
-`git remote` は Git に登録されている リモートリポジトリの一覧を管理するためのコマンドです。
+`git remote` はGitに登録されているリモートリポジトリの一覧を管理するためのコマンドです。
 
-`-v` は 登録されている リモートリポジトリの一覧を表示するためのコマンドです。
+`-v` は登録されているリモートリポジトリの一覧を表示するためのコマンドです。
 
 ```bash
 $ git remote -v
 ```
 
-`remote add` コマンドは 新しくリモートを登録します。引数にリモート名と リモートのURL を取ります。
+`remote add` コマンドは新しくリモートを登録します。引数にリモート名とリモートのURLを取ります。
 
 ```bash
 $ git remote add {REMOTE_NAME} {REMOTE_URL}

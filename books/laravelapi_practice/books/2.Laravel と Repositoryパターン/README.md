@@ -1,20 +1,20 @@
-# Laravel と Repository パターン
+# LaravelとRepositoryパターン
 
-## Repository パターン
+## Repositoryパターン
 
-Repository パターンは、アプリケーションにおけるデータ操作を抽象化するためのクラス設計です。
+Repositoryパターンは、アプリケーションにおけるデータ操作を抽象化するためのクラス設計です。
 
-データ操作に関する処理を Repository と呼ばれるクラスに集約させることで、
+データ操作に関する処理をRepositoryと呼ばれるクラスに集約させることで、
 アプリケーション内でのデータ操作を共通化し、一貫したデータ操作を行うことができるようになります。
 
-簡単なステップで Repository クラスを作成しながら、
-Repository パターンの実践について確認していきましょう。
+簡単なステップでRepositoryクラスを作成しながら、
+Repositoryパターンの実践について確認していきましょう。
 
-## Action クラスの生成
+## Actionクラスの生成
 
-まずは サンプルのルートを作成してみましょう。
+まずはサンプルのルートを作成してみましょう。
 
-以下のようなテーブルを取り扱う、`App\Task` Eloquent に関する処理を想定します。
+以下のようなテーブルを取り扱う、`App\Task` Eloquentに関する処理を想定します。
 
 ```php
 <?php 
@@ -27,7 +27,7 @@ Schema::create('tasks', function (Blueprint $table) {
 });
 ```
 
-`App\Task` Eloquent を利用してタスクの一覧を生成するAPIを
+`App\Task` Eloquentを利用してタスクの一覧を生成するAPIを
 `app/Http/Controllers/TaskListController.php` を作成して以下のように記述します。
 
 ```php
@@ -65,12 +65,12 @@ Route::get("task/list","TaskListController@getList");
 データベースにサンプルデータを複数格納し、実際にAPIにアクセスして、
 正しく動作が行われているか確認してみましょう。
 
-## Repository パターンの利用
+## Repositoryパターンの利用
 
-ルート内で直接 Eloquent を操作して処理してきたコードを、
-Repostiroy パターンを利用して実装してみましょう。
+ルート内で直接Eloquentを操作して処理してきたコードを、
+Repostiroyパターンを利用して実装してみましょう。
 
-Task テーブルへの操作を制御するための `TaskRepository` を作成するために、
+Taskテーブルへの操作を制御するための `TaskRepository` を作成するために、
 `app/Repository/TaskRepository.php` を作成して以下のようなコードを記述してみましょう。
 
 ```php
@@ -118,16 +118,16 @@ class TaskListController
 
 上記のように記述することで、ルート内での処理はより明瞭になります。
 
-Repository をコールして処理を実行していることに加え、
+Repositoryをコールして処理を実行していることに加え、
 ルート内で利用しているパラメータも明確に判断することができます。
 
-また、アプリケーション内でのデータ処理を Repository 経由に限定することで、
+また、アプリケーション内でのデータ処理をRepository経由に限定することで、
 アプリケーション全体で `tasks` テーブルに対してどの様な操作がされているのか
 ひと目で把握することができるようになります。
 
-他の CRUD 処理全体に関しても同様の手法で、Repository を作成することができます。
+他のCRUD処理全体に関しても同様の手法で、Repositoryを作成することができます。
 
-## Repository の設計
+## Repositoryの設計
 
 先に作成したリポジトリのコードを見てみましょう。
 
@@ -151,16 +151,16 @@ class TaskRepository
 }
 ```
 
-Repository の設計で重要なのは Repository には DB 操作に関するコードのみを記載するということです。
+Repositoryの設計で重要なのはRepositoryにはDB操作に関するコードのみを記載するということです。
 
-Repository はアプリケーション全体でのデータ利用に関するロジックを記載する場所となるため、
-Controller からのリクエストフォーマット等を意識してはいけません。
+Repositoryはアプリケーション全体でのデータ利用に関するロジックを記載する場所となるため、
+Controllerからのリクエストフォーマット等を意識してはいけません。
 
 パラメータ等は、`request()` 関数経由で取得するのではなく、引数で直接取得するようにしています。
 
-引数リストは 以下のような形でデフォルト値付きで記述することもできますが、
-「デフォルト値が何か」といったことも、「API の仕様」の範囲なので、
-これも Repository 内では記述しないほうがいいでしょう。
+引数リストは以下のような形でデフォルト値付きで記述することもできますが、
+「デフォルト値が何か」といったことも、「APIの仕様」の範囲なので、
+これもRepository内では記述しないほうがいいでしょう。
 
 ```php
     public function getList($sort="DESC",$limit=10)
@@ -169,25 +169,25 @@ Controller からのリクエストフォーマット等を意識してはいけ
     }
 ```
 
-Repository は純粋な DB 操作のみをコードとして表現するクラスです。
+Repositoryは純粋なDB操作のみをコードとして表現するクラスです。
 
-`request()` によるリクエスト関連処理だけでなく、ページアプリケーションでの セッションや、
-認証関連処理も Repository からは除外する方が良いでしょう。 
+`request()` によるリクエスト関連処理だけでなく、ページアプリケーションでのセッションや、
+認証関連処理もRepositoryからは除外する方が良いでしょう。 
 
 ルートの仕様に左右されない、
-純粋な 機能表現としての DB 操作を Repoisitory に落とし込むことで、
+純粋な機能表現としてのDB操作をRepoisitoryに落とし込むことで、
 自動テストでの利便性や、変更に対して強いアプリケーション構成を整えることができます。
 
-## ValueObject の利用
+## ValueObjectの利用
 
-上記のような Repository コードを利用して、
-ルートの処理と データアクセスの処理を分離することができました。
+上記のようなRepositoryコードを利用して、
+ルートの処理とデータアクセスの処理を分離することができました。
 
-しかし、上記のコードでは、 `getList` の戻り値は Eloquent で取得できるため、
-Controller 内で `getList`の戻り値を利用して、簡単に Eloquent の機能を利用することができます。
+しかし、上記のコードでは、 `getList` の戻り値はEloquentで取得できるため、
+Controller内で `getList`の戻り値を利用して、簡単にEloquentの機能を利用することができます。
 
-Controoler に対してシンプルなデータモデルを提供するために、
-ValueObject と呼ばれるクラスを作成してみましょう。
+Controolerに対してシンプルなデータモデルを提供するために、
+ValueObjectと呼ばれるクラスを作成してみましょう。
 
 `app/ValueObject/TaskObject.php`を作成して以下のようなコードを記述します。
 
@@ -212,10 +212,10 @@ class TaskObject
 }
 ```
 
-ValueObject では tasks テーブルの中でアプリケーションにとって必要な情報のみを
+ValueObjectではtasksテーブルの中でアプリケーションにとって必要な情報のみを
 プロパティとして定義し、単純なデータの入れ物として作成します。
 
-Eloquent をこの ValueObject に変換するためには Eloquent に以下のようなメソドを追加します。
+EloquentをこのValueObjectに変換するためにはEloquentに以下のようなメソドを追加します。
 
 ```php
 <?php
@@ -238,7 +238,7 @@ class Task extends Model
 }
 ```
 
-Repository は以下のように修正して作業完了です。
+Repositoryは以下のように修正して作業完了です。
 
 ```php
 <?php
@@ -261,22 +261,22 @@ class TaskRepository
 }
 ```
 
-Repository 内部で取得した Eloquent の結果セットを、
-Eloquent にて定義した `toValueObject` メソドを用いて
-ValueObject に変換し、Eloquent ではない結果セットを return するように変更しています。
+Repository内部で取得したEloquentの結果セットを、
+Eloquentにて定義した `toValueObject` メソドを用いて
+ValueObjectに変換し、Eloquentではない結果セットをreturnするように変更しています。
 
 これで、`TaskRepository::getList` の戻り値は、
-Eloquent のコレクションから、`TaskObject` のコレクションへと変化しました。
+Eloquentのコレクションから、`TaskObject` のコレクションへと変化しました。
 
-Eloquent ではなくシンプルな `TaskObject`を利用することで、
-アプリケーション全体で利用するデータモデルが Database に依存しないものになります。
+Eloquentではなくシンプルな `TaskObject`を利用することで、
+アプリケーション全体で利用するデータモデルがDatabaseに依存しないものになります。
 
-例えば title 列が name 列に名前変更された場合でも、
-アプリケーション全体での影響は、ValueObject 生成時のコードを変更することで吸収できます。
+例えばtitle列がname列に名前変更された場合でも、
+アプリケーション全体での影響は、ValueObject生成時のコードを変更することで吸収できます。
 
-### ValueObject のJSON整形
+### ValueObjectのJSON整形
 
-上記の例で実際に API リクエストを投げると以下のようなレスポンスが帰ってきます。
+上記の例で実際にAPIリクエストを投げると以下のようなレスポンスが帰ってきます。
 
 ```json
 {
@@ -294,11 +294,11 @@ Eloquent ではなくシンプルな `TaskObject`を利用することで、
 }
 ```
 
-Carbon で表現されている 日付情報がそのまま内部のデータを含めてJSON化されているため、
+Carbonで表現されている日付情報がそのまま内部のデータを含めてJSON化されているため、
 やや利用しづらいフォーマットになっています。
 
-ValueObject のような単純な JSON 形式のデータを整形するには、
-以下の様に ValueObject に対し `JsonSerializable` インターフェイスを実装します。
+ValueObjectのような単純なJSON形式のデータを整形するには、
+以下の様にValueObjectに対し `JsonSerializable` インタフェースを実装します。
 
 ```php
 <?php
@@ -328,7 +328,7 @@ class TaskObject implements \JsonSerializable
 }
 ```
 
-JsonSerializable インターフェイスはオブジェクトが JSON 化された際の挙動を制御する
-インターフェイスです。 `jsonSerialize` メソドの中で任意の配列を return することで
-JSON 化された際の表現形式を制御する事ができます。
+JsonSerializableインタフェースはオブジェクトがJSON化された際の挙動を制御する
+インターフェイスです。 `jsonSerialize` メソドの中で任意の配列をreturnすることで
+JSON化された際の表現形式を制御する事ができます。
 

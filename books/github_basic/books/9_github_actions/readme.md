@@ -1,14 +1,14 @@
-# GitHub Actions の活用
+# GitHub Actionsの活用
 
-GitHub Actions は、 GitHub 上で動作する CI サービスです。
+GitHub Actionsは、 GitHub上で動作するCIサービスです。
 
 ワークフローと呼ばれる単位でタスクを記述し、
-GitHub 上での push や pull-request のオープンといった処理をトリガーに
+GitHub上でのpushやpull-requestのオープンといった処理をトリガーに
 各種処理を発行することができます。
 
 ## Getting Started 
 
-ワークフローはそれぞれ１つの Yaml ファイルから作成する事ができます。
+ワークフローはそれぞれ1つのYamlファイルから作成する事ができます。
 
 試しにリポジトリに `.github/workflows/simple.yml` を作成し、以下のような内容を記述してみましょう。
 
@@ -27,13 +27,13 @@ jobs:
           echo "sample task"
 ```
 
-この状態で、リポジトリにコードを push すると GitHub の Actions のタブから、タスクが実行されているのが確認できるはずです。
+この状態で、リポジトリにコードをpushするとGitHubのActionsのタブから、タスクが実行されているのが確認できるはずです。
 
 ## ワークフローの構文
 
-ワークフローは、Yaml 形式のファイルで記述され、複数のワークフローを定義することも可能です。
+ワークフローは、Yaml形式のファイルで記述され、複数のワークフローを定義することも可能です。
 
-`name` は 画面上に表示されるワークフローの名称として機能します。
+`name` は画面上に表示されるワークフローの名称として機能します。
 
 `on` はワークフローをトリガーするイベントの種別を定義します。
 
@@ -58,16 +58,16 @@ on:
       - created
 ```
 
-上記の記述では、 push イベントはすべてのブランチに反応しますが、
-pull_request は master ブランチのみで、また PR が作成されたときのみ反応します。
+上記の記述では、 pushイベントはすべてのブランチに反応しますが、
+pull_requestはmasterブランチのみで、またPRが作成されたときのみ反応します。
 
 ワークフローで利用可能なすべてのイベントタイプは以下から確認可能です。
 
 https://help.github.com/ja/actions/automating-your-workflow-with-github-actions/events-that-trigger-workflows
 
-### jobs の記載
+### jobsの記載
 
-jobs は ワークフローで実行する ジョブの本体です。
+jobsはワークフローで実行するジョブの本体です。
 
 jobs.{jobName} の形式で複数のジョブを記述可能で、
 それぞれのジョブは並列に、異なる環境で実行されます。
@@ -87,7 +87,7 @@ jobs:
 
 `steps` にはジョブ内の処理を記述していきます。
 `name` は、各ステップに添えられる名称です。
-ステップ内では、`use` キーワードを用いて 予め定義された処理セットを参照することが可能です。
+ステップ内では、`use` キーワードを用いて予め定義された処理セットを参照することが可能です。
 ステップ内で処理する内容を自分で記述する場合には、`run` でコマンドを記述します。
 
 上記のジョブでは `actions/checkout@v1` を利用してソースのダウンロードを行い、`echo` でメッセージを出力しています。
@@ -98,9 +98,9 @@ jobs:
 
 https://help.github.com/ja/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#
 
-## Badge の利用
+## Badgeの利用
 
-GitHub Actions の実行ステータスを README 等に記載する場合、以下の形式の Badge が利用可能です。
+GitHub Actionsの実行ステータスをREADME等に記載する場合、以下の形式のBadgeが利用可能です。
 
 ```markdown
 [![Actions Status](https://github.com/{owner}/{repo}/workflows/{workflowName}/badge.svg)](https://github.com/{owner}/{repo}/actions)
@@ -110,7 +110,7 @@ GitHub Actions の実行ステータスを README 等に記載する場合、以
 
 自分で定義したアクション処理を、ワークフロー内で実行する事も可能です。
 
-ワークフローは JavaScript を用いて記述することが可能です。
+ワークフローはJavaScriptを用いて記述することが可能です。
 
 試しに、フォルダ `.github/actions/sample_action` を作成して以下のような構成を整えてみましょう。
 
@@ -124,7 +124,7 @@ GitHub Actions の実行ステータスを README 等に記載する場合、以
 └── package.json
 ```
 
-package.json は以下のような形で記述します。
+package.jsonは以下のような形で記述します。
 
 ```json
 {
@@ -147,7 +147,7 @@ package.json は以下のような形で記述します。
 必要なモジュールとして `@actions/core` と `@actions/github` をインストールするよう記述しておいてください。
 
 
-action.yml はカスタムアクションの定義ファイルです。
+action.ymlはカスタムアクションの定義ファイルです。
 
 `input` `outputs` でアクションの入出力を定義することが可能です。
 
@@ -167,7 +167,7 @@ runs:
   main: 'index.js'
 ```
 
-処理を記述する JavaScript のファイルは以下のようになります。
+処理を記述するJavaScriptのファイルは以下のようになります。
 
 ```js
 const core = require('@actions/core');
@@ -187,10 +187,10 @@ try {
 }
 ```
 
-`@actions/core` を利用して Input / Output のハンドリングが行える他、
-`@actions/github` 経由で、GitHub 上のデータアクセスを行うことが可能です。
+`@actions/core` を利用してInput / Outputのハンドリングが行える他、
+`@actions/github` 経由で、GitHub上のデータアクセスを行うことが可能です。
 
-こうして作成された actions は以下のような形でワークフローから利用することが可能です。
+こうして作成されたactionsは以下のような形でワークフローから利用することが可能です。
 
 ```yaml
 jobs:

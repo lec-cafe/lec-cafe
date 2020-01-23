@@ -4,31 +4,31 @@ title: タスクリストAPIの開発
 
 # タスクリストAPIの開発
 
-REST API は HTTP 通信を利用してデータの受け渡しを実現するためのシンプルなWebシステムの形です。
+REST APIはHTTP通信を利用してデータの受け渡しを実現するためのシンプルなWebシステムの形です。
 
-通常の Laravel アプリケーションのように View を用いて HTML を生成するのではなく、
-データのやり取りは単純なJSON の形式で行われます。
+通常のLaravelアプリケーションのようにViewを用いてHTMLを生成するのではなく、
+データのやり取りは単純なJSONの形式で行われます。
 
-Webシステムを、REST API 形式で構築することにより、フロントエンドのWebアプリケーションや、iOS / Android などの ネイティブアプリケーションなど
-様々な場面で Laravel を用いた データベースシステムを活用する事ができるようになります。
+Webシステムを、REST API形式で構築することにより、フロントエンドのWebアプリケーションや、iOS / Androidなどのネイティブアプリケーションなど
+様々な場面でLaravelを用いたデータベースシステムを活用する事ができるようになります。
 
-まずははじめに、シンプルなタスクリストの API を作成して、
-REST API 形式の Webシステムを構築するフローを確認してみましょう。
+まずははじめに、シンプルなタスクリストのAPIを作成して、
+REST API形式のWebシステムを構築するフローを確認してみましょう。
 
 ## タスクリストAPIの設計
 
 シンプルなタスクリストアプリケーションでは、
 タスクの登録と削除、それにタスクの一覧取得が必要になります。
 
-REST API は、それぞれの機能に URL と HTTP Method を与えて、
-Web 経由でリクエスト可能な機能を提供します。
+REST APIは、それぞれの機能にURLとHTTP Methodを与えて、
+Web経由でリクエスト可能な機能を提供します。
 
-HTTP Method には、 `GET` `POST` `PUT` `PATCH` `DELETE` などの種別があり、  
+HTTP Methodには、 `GET` `POST` `PUT` `PATCH` `DELETE` などの種別があり、  
 それぞれ `取得(GET)` `各種処理(POST)` `データの追加(PUT)` `データの更新(PATCH)` `データの削除(DELETE)`
 などの意味が与えられています。
 
-これから シンプルなタスクリストアプリケーションの API を作成するにあたり、
-以下のような 3 本の API 構築を目標にしてみましょう。
+これからシンプルなタスクリストアプリケーションのAPIを作成するにあたり、
+以下のような3本のAPI構築を目標にしてみましょう。
 
 - `GET /tasks` タスク一覧を取得するAPI 
 - `POST /task` タスクを作成するAPI
@@ -36,16 +36,16 @@ HTTP Method には、 `GET` `POST` `PUT` `PATCH` `DELETE` などの種別があ�
 
 ## データベースのセットアップ
 
-DB を利用したアプリケーションを作成するために、
-まずは、Laravel における Database の設定を行いましょう。
+DBを利用したアプリケーションを作成するために、
+まずは、LaravelにおけるDatabaseの設定を行いましょう。
 
-Laravel アプリケーションがデータベースに接続可能なように、
+Laravelアプリケーションがデータベースに接続可能なように、
 `.env` ファイルに接続の設定を記述します。
 
-デフォルトの状態では、homestead で環境構築を行った場合の、
-MySQL 接続設定が記述されています。
+デフォルトの状態では、homesteadで環境構築を行った場合の、
+MySQL接続設定が記述されています。
 
-homestead の MySQL以外、例えば sqlite で Laravel に接続する場合、`.env` ファイルは以下のように書き換えます。
+homesteadのMySQL以外、例えばSQLiteでLaravelに接続する場合、`.env` ファイルは以下のように書き換えます。
 
 ```.dotenv
 DB_CONNECTION=sqlite
@@ -56,7 +56,7 @@ DB_CONNECTION=sqlite
 #DB_PASSWORD=secret
 ```
 
-sqlite を使用するために `database/database.sqlite` を作成しておきましょう。
+SQLiteを使用するために `database/database.sqlite` を作成しておきましょう。
 
 ```bash
 $ touch database/database.sqlite
@@ -96,7 +96,7 @@ public function down(){
 $ php artisan migrate
 ```
 
-`migrate` コマンドは データベース にテーブルを作成するためのコマンドで、
+`migrate` コマンドはデータベースにテーブルを作成するためのコマンドで、
 実行された順番を記録して、次回新しくマイグレーションのファイルを追加した際に続きからの実行を行ってくれます。
 
 既存のマイグレーションファイルを編集した際など、マイグレーションを最初から実行し直したいときは `migrate:fresh` コマンドを実行します。
@@ -105,15 +105,15 @@ $ php artisan migrate
 $ php artisan migrate:fresh
 ```
 
-migration のより詳しい使い方は、
+migrationのより詳しい使い方は、
 
 https://laravel.com/docs/6.x/migrations
 
 を参考にしてください。
 
-### Eloquent の準備
+### Eloquentの準備
 
-テーブルが作成できたらタスクを投入するための、Eloquent Model を作成しましょう。
+テーブルが作成できたらタスクを投入するための、Eloquent Modelを作成しましょう。
 
 `app/Task.php` を作成し以下のように記述します。
 
@@ -131,17 +131,17 @@ class Task extends Model
 }
 ```
 
-Laravel では この `Illuminate\Database\Eloquent\Model` クラスを継承して作成したモデルクラスを利用して、
+Laravelではこの `Illuminate\Database\Eloquent\Model` クラスを継承して作成したモデルクラスを利用して、
 テーブルに対する様々な操作を行うことができます。
 
-## タスク追加 API の作成
+## タスク追加APIの作成
 
-準備が整ったので実際に REST API を作成していきましょう。
+準備が整ったので実際にREST APIを作成していきましょう。
 
-API に関する情報はすべて `routes/api.php` に記述します。
+APIに関する情報はすべて `routes/api.php` に記述します。
 
-まずは、タスクを追加する API `POST /task` を作成するため、
-以下のようなかたちで POST の API を定義します。
+まずは、タスクを追加するAPI `POST /task` を作成するため、
+以下のようなかたちでPOSTのAPIを定義します。
 
 ```php
 <?php
@@ -153,7 +153,7 @@ Route::post("/task",function(){
 });
 ```
 
-上記の形式で作成した API は、Postman などのツールを用いて以下の形式でリクエスト可能です。
+上記の形式で作成したAPIは、Postmanなどのツールを用いて以下の形式でリクエスト可能です。
 
 - URL: `/api/task`
 - METHOD: `POST`
@@ -163,16 +163,16 @@ Route::post("/task",function(){
 
 リクエストを発行して実際にデータベースにデータが追加されることを確認してみましょう。
 
-API 経由で送られた JSON のデータは、
+API経由で送られたJSONのデータは、
 `request()->get("name")` のようにして取得することができます。
 
-上記のコードでは `\App\Task` クラスを作成して、name 列に JSON のデータを格納し、
+上記のコードでは `\App\Task` クラスを作成して、name列にJSONのデータを格納し、
 `save` でデータベースにデータを保存します。
 
 ## タスク一覧を取得するAPI
 
-次に、タスクの一覧を取得する API `GET /tasks` を作成します。
-`GET` の API は以下のような形で `Route::get` を用いて `routes/api.php` に記述します。
+次に、タスクの一覧を取得するAPI `GET /tasks` を作成します。
+`GET` のAPIは以下のような形で `Route::get` を用いて `routes/api.php` に記述します。
 
 ```php
 <?php
@@ -181,19 +181,19 @@ Route::get("/tasks",function(){
 });
 ```
 
-上記の形式で作成した API は、Postman などのツールを用いて以下の形式でリクエスト可能です。
+上記の形式で作成したAPIは、Postmanなどのツールを用いて以下の形式でリクエスト可能です。
 
 - URL: `/api/tasks`
 - METHOD: `GET`
 
-API リクエストを実行すると、
-レスポンスに JSON 形式でタスクの一覧が表示され、先程追加したデータが表示されるのが確認できるでしょう。
+APIリクエストを実行すると、
+レスポンスにJSON形式でタスクの一覧が表示され、先程追加したデータが表示されるのが確認できるでしょう。
 
-Laravel で記述した ルート関数では、return した内容がそのままレスポンスとして利用されます。
-配列 `[]` や Eloquent のコレクションを return にわたすことで、
-自動的に JSON 形式に変換されて REST API として機能する様に動作させることができます。
+Laravelで記述したルート関数では、returnした内容がそのままレスポンスとして利用されます。
+配列 `[]` やEloquentのコレクションをreturnにわたすことで、
+自動的にJSON形式に変換されてREST APIとして機能する様に動作させることができます。
 
-JSON 形式への変換は再帰的に行われるため、以下のように任意の配列構造を作成することもできます。
+JSON形式への変換は再帰的に行われるため、以下のように任意の配列構造を作成することもできます。
 
 ```php
 <?php
@@ -207,12 +207,12 @@ Route::get("/tasks",function(){
 
 ## タスクを更新・削除するAPI
 
-最後に、タスクを削除する API `GET /task/{id}` を作成します。
-`DELETE` の API は以下のような形で `Route::delete` を用いて `routes/api.php` に記述します。
+最後に、タスクを削除するAPI `GET /task/{id}` を作成します。
+`DELETE` のAPIは以下のような形で `Route::delete` を用いて `routes/api.php` に記述します。
 
 
-通常 Webページを利用するシステムでは GET / POST の HTTP Method がよく用いられますが、
-REST API では PATCH / PUT / DELETE などの HTTP Method もよく用いられます。
+通常Webページを利用するシステムではGET / POSTのHTTP Methodがよく用いられますが、
+REST APIではPATCH / PUT / DELETEなどのHTTP Methodもよく用いられます。
 
 ```php
 <?php
@@ -225,16 +225,16 @@ Route::delete("/task/{id}",function($id){
 });
 ```
 
-Route で URL を記述する際に `/task/{id}` のように `{ }` を利用して記述すると、
+RouteでURLを記述する際に `/task/{id}` のように `{ }` を利用して記述すると、
 その部分は任意の文字列にマッチするようになります。 
 
-マッチした文字列は 関数の引数として `$id` のように取得可能です。
+マッチした文字列は関数の引数として `$id` のように取得可能です。
 
-`\App\Task::find($id)` は ID を指定して Eloquent のモデルを取得する方法で、
-取得した オブジェクトに対して `delete` をコールすることで、
+`\App\Task::find($id)` はIDを指定してEloquentのモデルを取得する方法で、
+取得したオブジェクトに対して `delete` をコールすることで、
 該当のオブジェクトを削除することが可能になります。
 
-Eloquent のより詳しい使い方は以下を参考にしてください。
+Eloquentのより詳しい使い方は以下を参考にしてください。
 
 https://laravel.com/docs/5.8/eloquent
 

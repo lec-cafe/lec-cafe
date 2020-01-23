@@ -1,23 +1,31 @@
 {
   "private": true,
   "scripts": {
-    "docs:dev":                 "vuepress dev books",
-    "docs:build":               "vuepress build books",
-    "dev:github_basic":         "vuepress dev books/github_basic/books",
-    "dev:laravelapi_basic":     "vuepress dev books/laravelapi_basic/books",
-    "dev:laravelapi_practice":  "vuepress dev books/laravelapi_practice/books",
-    "dev:nuxtjs_basic":         "vuepress dev books/nuxtjs_basic/books",
-    "dev:nuxtjs_practice":      "vuepress dev books/nuxtjs_practice/books",
-    "dev:nuxtjs_firebase":      "vuepress dev books/nuxtjs_firebase/books",
-    "build:github_basic":         "vuepress build -d ./dist books/github_basic/books",
-    "build:laravelapi_basic":     "vuepress build -d ./dist books/laravelapi_basic/books",
-    "build:laravelapi_practice":  "vuepress build -d ./dist books/laravelapi_practice/books",
-    "build:nuxtjs_basic":         "vuepress build -d ./dist books/nuxtjs_basic/books",
-    "build:nuxtjs_practice":      "vuepress build -d ./dist books/nuxtjs_practice/books",
-    "build:nuxtjs_firebase":      "vuepress build -d ./dist books/nuxtjs_firebase/books"
+    "docs:dev": "vuepress dev books",
+    "docs:build": "vuepress build books",
+    "dev:github_basic": "vuepress dev books/github_basic/books",
+    "dev:laravelapi_basic": "vuepress dev books/laravelapi_basic/books",
+    "dev:laravelapi_practice": "vuepress dev books/laravelapi_practice/books",
+    "dev:nuxtjs_basic": "vuepress dev books/nuxtjs_basic/books",
+    "dev:nuxtjs_practice": "vuepress dev books/nuxtjs_practice/books",
+    "dev:nuxtjs_firebase": "vuepress dev books/nuxtjs_firebase/books",
+    "build:github_basic": "vuepress build -d ./dist books/github_basic/books",
+    "build:laravelapi_basic": "vuepress build -d ./dist books/laravelapi_basic/books",
+    "build:laravelapi_practice": "vuepress build -d ./dist books/laravelapi_practice/books",
+    "build:nuxtjs_basic": "vuepress build -d ./dist books/nuxtjs_basic/books",
+    "build:nuxtjs_practice": "vuepress build -d ./dist books/nuxtjs_practice/books",
+    "build:nuxtjs_firebase": "vuepress build -d ./dist books/nuxtjs_firebase/books",
+    "lint": "textlint ./books/**/*.md",
+    "lintfix": "textlint --fix ./books/**/**/**/*.md"
   },
   "dependencies": {
     "linkify-it": "^2.2.0",
+    "textlint": "^11.6.1",
+    "textlint-rule-max-ten": "^2.0.3",
+    "textlint-rule-no-mix-dearu-desumasu": "^4.0.0",
+    "textlint-rule-preset-japanese": "^4.0.4",
+    "textlint-rule-preset-jtf-style": "^2.3.4",
+    "textlint-rule-spellcheck-tech-word": "^5.0.0",
     "vuepress": "^1.2.0"
   }
 }

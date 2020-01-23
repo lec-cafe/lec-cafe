@@ -1,11 +1,11 @@
-# TypeScript の導入
+# TypeScriptの導入
 
-Nuxt.js の TypeScript サポートは version 2.9 から外部パッケージに移行され、
+Nuxt.jsのTypeScriptサポートはversion 2.9から外部パッケージに移行され、
 よりスムーズに簡略化されました。
 
 https://typescript.nuxtjs.org/ja/
 
-Nuxt.js で TypeScript を利用するには、まずモジュールのインストールを行い、
+Nuxt.jsでTypeScriptを利用するには、まずモジュールのインストールを行い、
 `nuxt.config.js` の `buildModules` セクションにモジュールを追加します。
 
 ```bash
