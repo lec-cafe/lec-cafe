@@ -1,0 +1,6 @@
+[submodule "sample/nuxtjs_firebase"]
+	path = sample/nuxtjs_firebase
+	url = https://github.com/lec-cafe/sample_nuxtjs_firebase
+[submodule "books/nuxtjs_basic"]
+	path = books/nuxtjs_basic
+	url = https://github.com/lec-cafe/books_nuxtjs_basic
