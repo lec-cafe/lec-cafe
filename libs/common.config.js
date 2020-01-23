@@ -11,7 +11,7 @@ Github の使い方 （push / pull）
 GIthub のチームでの使い方 ( Issue / Pull Request )    `,
   themeConfig: {
     nav: [
-      { text: 'Lec Café', link: 'https://leccafe.connpass.com/' },
+      {text: 'Lec Café', link: 'https://leccafe.connpass.com/'},
     ],
     repo: 'lec-cafe/lec-cafe',
     repoLabel: 'Github',
