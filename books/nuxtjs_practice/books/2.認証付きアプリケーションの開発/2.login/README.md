@@ -57,14 +57,9 @@ export default {
 `store/user.js` を作成して、以下のような形で Vuex ファイルを作成します。
 
 ```js
-export const user = () => {
+export const state = () => {
   return {
-    user: {
-      token: null,
-      display_name: null,
-      avatar: null,
-      account_name: null
-    }
+    user: null
   }
 }
 
@@ -104,14 +99,9 @@ store ではユーザ情報の形を定義しています。
 GitHubのREST API で取得可能な項目は後述する API 仕様ドキュメントから確認できます。
 
 ```js
-export const user = () => {
+export const state = () => {
   return {
-    user: {
-      token: null,
-      display_name: null,
-      avatar: null,
-      account_name: null
-    }
+    user: null
   }
 }
 ```
