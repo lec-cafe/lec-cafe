@@ -13,6 +13,9 @@ permalink: /git_remote
 ```bash
 $ git remote -v
 ```
+git remote -vで表示される
+(origin)	https://gitlab.com/mikakane/spinning-front (fetch)
+一番最初のカッコの部分がリモート名になります。
 
 `remote add` コマンドは新しくリモートを登録します。引数にリモート名とリモートのURLを取ります。
 
