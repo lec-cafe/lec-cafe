@@ -155,6 +155,8 @@ class UserToken extends Model
 }
 ```
 
+ 
+
 `$fillable` などの元から書かれている内容は消してしまってもOKです。
 
 Laravelではこの `Illuminate\Database\Eloquent\Model` クラスを継承して作成したモデルクラスを利用して、
