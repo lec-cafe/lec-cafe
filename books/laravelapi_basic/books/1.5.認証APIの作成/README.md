@@ -125,9 +125,6 @@ https://laravel.com/docs/6.x/migrations
 
 ```
 <?php
-
-namespace App;
-
 namespace App;
 
 use Illuminate\Contracts\Auth\MustVerifyEmail;
