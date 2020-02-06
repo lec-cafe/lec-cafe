@@ -28,6 +28,7 @@ module.exports = {
     ],
     sidebar: [
       '/1.タスクリストAPIの作成/',
+      '/1.5.認証APIの作成/',
       '/2.Eloquent による DB 操作/',
       '/3.REST API の設計/',
       '/4.REST API のテスト/',
