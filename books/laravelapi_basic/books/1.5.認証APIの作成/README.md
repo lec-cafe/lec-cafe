@@ -217,7 +217,6 @@ Route::post("/user",function(){
 });
 ```
 
-
 ## ログイン用のAPI
 
 次に、ログイン用のAPI `POST /login` を作成します。
@@ -266,7 +265,7 @@ Route::get("/profile",function(){
   $token = request()->bearerToken();
   $userToken = \App\UserToken::where("token",$token)->first();
   if($userToken){
-    $user = \App\User::where("user_id",$userToken->user_id)->first();      
+    $user = \App\User::where("id",$userToken->user_id)->first();      
     return [
       "user" => $user
     ];
@@ -280,6 +279,10 @@ Route::get("/profile",function(){
 - HEADER: Authorization: Bearer {作成されたトークン}
 
 API の戻り地で ログインしたユーザの名前が表示されれば成功です！
+
+## より強固なハッシュを利用する
+
+
 
 ## 認証処理の共通化
 
