@@ -146,12 +146,11 @@ class User extends Authenticatable
 <?php
 namespace App;
 
-use Illuminate\Contracts\Auth\MustVerifyEmail;
-use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Database\Eloquent\Model;
 
-class UserToken extends Authenticatable
+class User extends Model
 {
-    protected $table = "user_tokens";
+protected $table = "user_tokens";
 
 }
 ```
