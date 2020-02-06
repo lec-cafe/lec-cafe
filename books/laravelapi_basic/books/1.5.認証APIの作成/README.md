@@ -65,27 +65,33 @@ $ touch database/database.sqlite
 ### テーブルの作成
 
 データベースの接続設定ができたら、まずはテーブルを作成しましょう。
-マイグレーションコマンドを実行して、マイグレーションファイルを作成します。
 
-```bash
-$ php artisan make:migration todo
-```
-
-作成されたマイグレーションファイルに以下のようなタスクテーブル用のDB定義を記述します。
+デフォルトで用意されている `database/migrations/2014_10_12_000000_create_users_table.php`
+を以下のように変更してみましょう。
 
 ```php
 public function up(){
     //テーブル作成
-    Schema::create('tasks', function (Blueprint $table) {
+    Schema::create('m_users', function (Blueprint $table) {
         $table->increments('id');
         $table->string('name');
+        $table->string('email');
+        $table->string('password');
+        $table->timestamps();
+    });
+    
+    Schema::create('m_user_tokens', function (Blueprint $table) {
+        $table->increments('id');
+        $table->unsignedInteger('user_id');
+        $table->string('token');
         $table->timestamps();
     });
 }
 
 public function down(){
     //テーブル削除
-    Schema::dropIfExists('tasks');
+    Schema::dropIfExists('m_users');
+    Schema::dropIfExists('m_user_tokens');
 }
 ```
 
@@ -115,7 +121,7 @@ https://laravel.com/docs/6.x/migrations
 
 テーブルが作成できたらタスクを投入するための、Eloquent Modelを作成しましょう。
 
-`app/Task.php` を作成し以下のように記述します。
+`app/User.php` を以下のように記述します。
 
 ```
 <?php
@@ -124,9 +130,9 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Task extends Model
+class User extends Model
 {
-    protected $table = "tasks";
+    protected $table = "m_users";
 
 }
 ```
