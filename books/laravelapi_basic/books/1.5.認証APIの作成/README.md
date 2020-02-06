@@ -282,6 +282,46 @@ API の戻り地で ログインしたユーザの名前が表示されれば成
 
 ## より強固なハッシュを利用する
 
+ユーザ登録 API で利用した sha1 関数は、とてもシンプルな ハッシュ化の手法であるため、
+シンプルなパスワードを利用する場合、かんたんにハッシュが復元されてしまいます。
+
+Laravel ではより強固なハッシュ機構を提供するための Hash クラスが提供されており、
+これを利用することでより強固なセキュリティを保つことができるようになります。
+
+```php
+<?php
+Route::post("/user",function(){
+    $user = new \App\User();
+    $user->name = request()->input("name");
+    $user->email = request()->input("email");
+    $user->password = Hash::make(request()->input("password");
+    $user->save();
+    return [];
+});
+```
+
+```php
+<?php
+Route::post("/login",function(){
+  $email = request()->input("email");
+  $password = request()->input("password");
+  
+  $user = \App\User::where("email",$email)->first();
+  if($user){
+    if(Hash::check($password,$user->password)){
+      $token = new \App\UserToken();
+      $token->user_id = $user->id;
+      $token->token = \Illuminate\Support\Str::random();
+      $token->save();
+      return [
+        "token" => $token->token
+      ];
+    }      
+  }
+  abort(401);
+});
+```
+
 
 
 ## 認証処理の共通化
@@ -340,6 +380,7 @@ Route::middleware("auth:custom-token")->get("/profile",function(){
 
 ## Try 
 
+- ユーザの項目に 年齢や住所を追加してカスタマイズしてみましょう。
 - ユーザ登録のAPI にバリデーションや、Email の重複チェックを入れてみましょう。
 
 
