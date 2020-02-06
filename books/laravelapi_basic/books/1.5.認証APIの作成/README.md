@@ -56,6 +56,9 @@ DB_CONNECTION=sqlite
 #DB_PASSWORD=secret
 ```
 
+`DB_CONNECTION` を `sqlite` にする他、
+その他の設定項目の `DB_` から始まるものを `#` をつけてコメントアウトします。
+
 SQLiteを使用するために `database/database.sqlite` を作成しておきましょう。
 
 ```bash
