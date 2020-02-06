@@ -72,15 +72,15 @@ $ touch database/database.sqlite
 ```php
 public function up(){
     //テーブル作成
-    Schema::create('m_users', function (Blueprint $table) {
+    Schema::create('users', function (Blueprint $table) {
         $table->increments('id');
         $table->string('name');
-        $table->string('email');
+        $table->string('email')->unique();
         $table->string('password');
         $table->timestamps();
     });
     
-    Schema::create('m_user_tokens', function (Blueprint $table) {
+    Schema::create('user_tokens', function (Blueprint $table) {
         $table->increments('id');
         $table->unsignedInteger('user_id');
         $table->string('token');
@@ -90,8 +90,8 @@ public function up(){
 
 public function down(){
     //テーブル削除
-    Schema::dropIfExists('m_users');
-    Schema::dropIfExists('m_user_tokens');
+    Schema::dropIfExists('users');
+    Schema::dropIfExists('user_tokens');
 }
 ```
 
@@ -128,42 +128,49 @@ https://laravel.com/docs/6.x/migrations
 
 namespace App;
 
-use Illuminate\Database\Eloquent\Model;
+namespace App;
 
-class User extends Model
+use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Foundation\Auth\User as Authenticatable;
+
+class User extends Authenticatable
 {
-    protected $table = "m_users";
+    protected $table = "users";
 
 }
 ```
 
+`$fillable` などの元から書かれている内容は消してしまってもOKです。
+
 Laravelではこの `Illuminate\Database\Eloquent\Model` クラスを継承して作成したモデルクラスを利用して、
 テーブルに対する様々な操作を行うことができます。
 
-## タスク追加APIの作成
+## ユーザ追加APIの作成
 
 準備が整ったので実際にREST APIを作成していきましょう。
 
 APIに関する情報はすべて `routes/api.php` に記述します。
 
-まずは、タスクを追加するAPI `POST /task` を作成するため、
+まずは、タスクを追加するAPI `POST /user` を作成するため、
 以下のようなかたちでPOSTのAPIを定義します。
 
 ```php
 <?php
-Route::post("/task",function(){
-    $task = new \App\Task();
-    $task->name = request()->input("name");
-    $task->save();
+Route::post("/user",function(){
+    $user = new \App\User();
+    $user->user = request()->input("name");
+    $user->email = request()->input("email");
+    $user->password = request()->input("password");
+    $user->save();
     return [];
 });
 ```
 
 上記の形式で作成したAPIは、Postmanなどのツールを用いて以下の形式でリクエスト可能です。
 
-- URL: `/api/task`
+- URL: `/api/user`
 - METHOD: `POST`
-- BODY: JSON `{"name":"牛乳を買う"}`
+- BODY: JSON `{"name":"山田太郎","email":"taro@gmail.com",password:"pass"}`
 
 [Postman \| Download Postman App](https://www.getpostman.com/downloads/)
 
@@ -172,18 +179,51 @@ Route::post("/task",function(){
 API経由で送られたJSONのデータは、
 `request()->get("name")` のようにして取得することができます。
 
-上記のコードでは `\App\Task` クラスを作成して、name列にJSONのデータを格納し、
+上記のコードでは new で `\App\User` クラスを作成して、name列にJSONのデータを格納し、
 `save` でデータベースにデータを保存します。
 
-## タスク一覧を取得するAPI
 
-次に、タスクの一覧を取得するAPI `GET /tasks` を作成します。
-`GET` のAPIは以下のような形で `Route::get` を用いて `routes/api.php` に記述します。
+ちなみにこのままでは パスワードがDBに直接保存されてしまいます。
+以下のようにしてパスワードをハッシュ化してみましょう。
 
 ```php
 <?php
-Route::get("/tasks",function(){
-    return \App\Task::all();
+Route::post("/user",function(){
+    $user = new \App\User();
+    $user->user = request()->input("name");
+    $user->email = request()->input("email");
+    $user->password = sha1(request()->input("password"));
+    $user->save();
+    return [];
+});
+```
+
+
+## ログイン用のAPI
+
+次に、ログイン用のAPI `POST /login` を作成します。
+`routes/api.php` に以下のような記述を追加してみましょう。
+
+```php
+<?php
+Route::post("/login",function(){
+  $email = request()->input("email");
+  $password = request()->input("password");
+  
+  $user = \App\User::where("email",$email)->first();
+  if($user){
+    if($user->password === sha1($password)){
+      $token = new \App\UserToken();
+      $token->user_id = $user->id;
+      $token->token = \Illuminate\Support\Str::ramdom();
+      $token->save();
+      return [
+        "token" => $token->token
+      ];
+    }      
+  }else{
+    abort(404);
+  }
 });
 ```
 
