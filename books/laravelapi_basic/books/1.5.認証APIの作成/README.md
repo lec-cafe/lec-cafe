@@ -32,7 +32,7 @@ HTTP Methodには、 `GET` `POST` `PUT` `PATCH` `DELETE` などの種別があ�
 
 - `POST /user` ユーザを登録するAPI
 - `POST /login` ログインしてトークンを発行するためのAPI 
-- `POST /profile` ユーザ情報を取得するためのAPI 
+- `GET /profile` ユーザ情報を取得するためのAPI 
 
 ## データベースのセットアップ
 
