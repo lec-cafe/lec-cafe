@@ -334,3 +334,10 @@ Route::middleware("auth:custom-token")->get("/profile",function(){
   ];
 });
 ```
+
+## Try 
+
+- ユーザ登録のAPI にバリデーションや、Email の重複チェックを入れてみましょう。
+
+
+
