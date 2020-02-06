@@ -288,6 +288,8 @@ API の戻り地で ログインしたユーザの名前が表示されれば成
 Laravel ではより強固なハッシュ機構を提供するための Hash クラスが提供されており、
 これを利用することでより強固なセキュリティを保つことができるようになります。
 
+ハッシュ化は `Hash::make` で実行できるため、ユーザ登録のAPI は以下のようになります。
+
 ```php
 <?php
 Route::post("/user",function(){
@@ -299,6 +301,9 @@ Route::post("/user",function(){
     return [];
 });
 ```
+
+ハッシュ化された値のチェックは `Hash::check` で実行します。
+ログインのAPI は以下のようになります。
 
 ```php
 <?php
@@ -325,6 +330,9 @@ Route::post("/login",function(){
 
 
 ## 認証処理の共通化
+
+認証付き API を実装しましたが、API を作成するたびに、
+トークンからDBの検索を行い ユーザ情報を取得するのはあまりに処理が煩雑で開発も大変です。
 
 `app/Providers/AuthServiceProvider.php` に以下のような記述を追加してみましょう。
 
@@ -371,9 +379,9 @@ profile の API は以下のように書き換えが、
 
 ```php
 <?php
-Route::middleware("auth:custom-token")->get("/profile",function(){
+Route::middleware("auth:api")->get("/profile",function(){
   return [
-    "user" => Auth::guard("custom-token")->user()
+    "user" => Auth::guard("api")->user()
   ];
 });
 ```
