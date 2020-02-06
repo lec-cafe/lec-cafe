@@ -162,7 +162,9 @@ Route::post("/user",function(){
     $user->email = request()->input("email");
     $user->password = request()->input("password");
     $user->save();
-    return [];
+    return [
+      "message" => "ユーザを作成しました"
+    ];
 });
 ```
 
@@ -221,66 +223,97 @@ Route::post("/login",function(){
         "token" => $token->token
       ];
     }      
-  }else{
-    abort(404);
   }
+  abort(401);
 });
 ```
 
 上記の形式で作成したAPIは、Postmanなどのツールを用いて以下の形式でリクエスト可能です。
 
-- URL: `/api/tasks`
-- METHOD: `GET`
+- URL: `/api/login`
+- METHOD: `POST`
+- BODY: JSON `{"email":"登録したEmail","password":"登録したパスワード"}`
+
 
 APIリクエストを実行すると、
-レスポンスにJSON形式でタスクの一覧が表示され、先程追加したデータが表示されるのが確認できるでしょう。
+レスポンスにJSON形式でトークンが表示され、DBにもトークンが追加されるでしょう。
 
-Laravelで記述したルート関数では、returnした内容がそのままレスポンスとして利用されます。
-配列 `[]` やEloquentのコレクションをreturnにわたすことで、
-自動的にJSON形式に変換されてREST APIとして機能する様に動作させることができます。
+## 認証付きAPI
 
-JSON形式への変換は再帰的に行われるため、以下のように任意の配列構造を作成することもできます。
+最後に、トークンを用いて認証を識別するAPI `GET /profile` を作成します。
+`routes/api.php` を以下のような形式で編集してみましょう。
 
 ```php
 <?php
-Route::get("/tasks",function(){
+Route::get("/profile",function(){
+  $token = request()->bearerToken();
+  $userToken = \App\UserToken::where("token",$token)->first();
+  if($userToken){
+    $user = \App\User::where("user_id",$userToken->user_id)->first();      
     return [
-        "status" => "OK",
-        "tasks" => \App\Task::all(),
+      "user" => $user
     ];
+  }
+  abort(401);
 });
 ```
 
-## タスクを更新・削除するAPI
+- URL: `/api/profile`
+- METHOD: `GET`
+- HEADER: Authorization: Bearer {作成されたトークン}
 
-最後に、タスクを削除するAPI `GET /task/{id}` を作成します。
-`DELETE` のAPIは以下のような形で `Route::delete` を用いて `routes/api.php` に記述します。
+API の戻り地で ログインしたユーザの名前が表示されれば成功です！
 
+## 認証処理の共通化
 
-通常Webページを利用するシステムではGET / POSTのHTTP Methodがよく用いられますが、
-REST APIではPATCH / PUT / DELETEなどのHTTP Methodもよく用いられます。
+`app/Providers/AuthServiceProvider.php` に以下のような記述を追加してみましょう。
+
+```php
+use App\User;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+
+...
+
+/**
+ * Register any application authentication / authorization services.
+ *
+ * @return void
+ */
+public function boot()
+{
+    $this->registerPolicies();
+
+    Auth::viaRequest('custom-token', function ($request) {
+      $token = request()->bearerToken();
+      $userToken = \App\UserToken::where("token",$token)->first();
+      if($userToken){
+        $user = \App\User::where("user_id",$userToken->user_id)->first();      
+        return $user;
+      }
+      return null;
+    });
+}
+```
+
+そして、 config/auth.php に以下の記述を追加します。
+
+```php 
+   'guards' => [
+       'api' => [
+           'driver' => 'custom-token',
+       ],
+   ],
+```  
+
+profile の API は以下のように書き換えが、         
+
 
 ```php
 <?php
-Route::delete("/task/{id}",function($id){
-    $task = \App\Task::find($id);
-    if($task){
-        $task->delete();
-    }    
-    return [];
+Route::middleware("auth:custom-token")->get("/profile",function(){
+  return [
+    "user" => Auth::guard("custom-token")->user()
+  ];
 });
 ```
-
-RouteでURLを記述する際に `/task/{id}` のように `{ }` を利用して記述すると、
-その部分は任意の文字列にマッチするようになります。 
-
-マッチした文字列は関数の引数として `$id` のように取得可能です。
-
-`\App\Task::find($id)` はIDを指定してEloquentのモデルを取得する方法で、
-取得したオブジェクトに対して `delete` をコールすることで、
-該当のオブジェクトを削除することが可能になります。
-
-Eloquentのより詳しい使い方は以下を参考にしてください。
-
-https://laravel.com/docs/5.8/eloquent
-
