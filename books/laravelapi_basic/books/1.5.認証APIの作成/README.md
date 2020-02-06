@@ -209,7 +209,7 @@ API経由で送られたJSONのデータは、
 <?php
 Route::post("/user",function(){
     $user = new \App\User();
-    $user->user = request()->input("name");
+    $user->name = request()->input("name");
     $user->email = request()->input("email");
     $user->password = sha1(request()->input("password"));
     $user->save();
