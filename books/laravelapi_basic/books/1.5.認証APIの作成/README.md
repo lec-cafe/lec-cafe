@@ -234,7 +234,7 @@ Route::post("/login",function(){
     if($user->password === sha1($password)){
       $token = new \App\UserToken();
       $token->user_id = $user->id;
-      $token->token = \Illuminate\Support\Str::ramdom();
+      $token->token = \Illuminate\Support\Str::random();
       $token->save();
       return [
         "token" => $token->token
