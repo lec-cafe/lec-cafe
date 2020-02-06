@@ -140,6 +140,22 @@ class User extends Authenticatable
 }
 ```
 
+`app/UserToken.php` を以下のように記述します。
+
+```
+<?php
+namespace App;
+
+use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Foundation\Auth\User as Authenticatable;
+
+class UserToken extends Authenticatable
+{
+    protected $table = "user_tokens";
+
+}
+```
+
 `$fillable` などの元から書かれている内容は消してしまってもOKです。
 
 Laravelではこの `Illuminate\Database\Eloquent\Model` クラスを継承して作成したモデルクラスを利用して、
