@@ -175,7 +175,7 @@ APIに関する情報はすべて `routes/api.php` に記述します。
 <?php
 Route::post("/user",function(){
     $user = new \App\User();
-    $user->user = request()->input("name");
+    $user->name = request()->input("name");
     $user->email = request()->input("email");
     $user->password = request()->input("password");
     $user->save();
@@ -189,7 +189,7 @@ Route::post("/user",function(){
 
 - URL: `/api/user`
 - METHOD: `POST`
-- BODY: JSON `{"name":"山田太郎","email":"taro@gmail.com",password:"pass"}`
+- BODY: JSON `{"name":"山田太郎","email":"taro@gmail.com","password":"pass"}`
 
 [Postman \| Download Postman App](https://www.getpostman.com/downloads/)
 
