@@ -175,7 +175,7 @@ block の中に多数の element が入り込むような大きな block の定�
 FLOCSS では `Block` `Element` `Modifier` に加えて、 `c-` `p-` `l-` `u-` の接頭辞が導入されます。
 
 - `c-` Object/Component に所属する CSS のルールに対するクラス
-- `p-` Object/Component に所属する CSS のルールに対するクラス
+- `p-` Object/Project に所属する CSS のルールに対するクラス
 - `l-` Layout に所属する CSS のルールに対するクラス
 - `u-` Object/Utility に所属する CSS のルールに対するクラス
 
@@ -189,7 +189,7 @@ FLOCSS では `Block` `Element` `Modifier` に加えて、 `c-` `p-` `l-` `u-` �
 ```
 
 また FLOCSS では、 BEM で複雑になりがちな `Modifier` の運用を破棄して、
-`is-` 接頭辞を利用した運用も許容されえています。
+`is-` 接頭辞を利用した運用も許容されています。
 
 先程の `--left` Modifierを利用したクラス名は以下のような形で書き換えが可能です。
 
@@ -269,7 +269,7 @@ FLOCSS では、Object/Component 層で、このような考え方のクラス�
 ### ページ上の意味合いに対する命名
 
 お問い合わせフォーム、というページ上の意味合いを重視し、
-エラーメッセージを `form-error-message`、ボタンを `form-btn` などのようにして、
+エラーメッセージを `form-error-message`、ボタンを `form-action` などのようにして、
 ページの内容に沿ったクラス命名を行う方法です。 
 
 ページ上の意味合いをベースに名前をつける場合、
