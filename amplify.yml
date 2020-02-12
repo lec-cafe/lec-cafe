@@ -19,6 +19,7 @@ frontend:
         - if [ “${AWS_BRANCH}” = “books_nuxtjs_practice” ];     then yarn run build:nuxtjs_practice; fi
         - if [ “${AWS_BRANCH}” = “event164588” ];     then yarn run build:laravelapi_basic; fi
         - if [ “${AWS_BRANCH}” = “event164587” ];     then yarn run build:nuxtjs_basic; fi
+        - if [ “${AWS_BRANCH}” = “event166720” ];     then yarn run build:nuxtjs_basic; fi
         - 'yarn run docs:build -d ../../dist'
   artifacts:
     baseDirectory: dist
