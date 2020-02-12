@@ -5,6 +5,7 @@ module.exports = {
   title: 'Nuxt.js による SPA 開発 実践編',
   description: 'Vue.js 製のフロント制作フレームワーク Nuxt.js で SPA を構築する際の実践的手法を紹介します。',
   themeConfig: {
+    ...commonConfig.themeConfig,
     nav: [
       {text: 'Lec Café', link: 'https://leccafe.connpass.com/'},
     ],
