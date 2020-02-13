@@ -35,7 +35,7 @@ setItem では、第一引数で名前を指定してデータを保存するこ
 この指定した名前を利用して getItem にてデータを取得することが可能です。
 
 ```js
-const token = localStorage.setItem("APP_TOKEN")
+const token = localStorage.getItem("APP_TOKEN")
 ```
 
 その他の詳しい使用方法は、MDN のドキュメントを参照ください。

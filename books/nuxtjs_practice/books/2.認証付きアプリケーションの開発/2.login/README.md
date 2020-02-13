@@ -177,6 +177,18 @@ export const actions = {
 </script>
 ```
 
+::: tip
+ログイン出来ない方は GitHub の Setting から、「Emails」 を選択し、
+`Keep my email addresses private` のチェックが外れていることを確認しましょう。
+:::
+
+::: tip
+ログイン出来ない方は GitHub の Setting から、「Profile」 を選択し、
+`Public email` が設定されていることを確認しましょう。
+:::
+
+
+
 マイページの側では、ログイン後の挙動を確認するため、
 以下のようにVuexを利用してStoreに格納されたユーザ情報を参照しておきましょう。
 
