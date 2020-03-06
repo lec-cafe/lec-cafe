@@ -12,13 +12,12 @@ frontend:
     build:
       commands:
         - if [ “${AWS_BRANCH}” = “books_github_basic” ];        then yarn run build:github_basic; fi
+        - if [ “${AWS_BRANCH}” = “books_jslang” ];    then yarn run build:jslang; fi
         - if [ “${AWS_BRANCH}” = “books_laravelapi_basic” ];    then yarn run build:laravelapi_basic; fi
         - if [ “${AWS_BRANCH}” = “books_laravelapi_practice” ]; then yarn run build:laravelapi_practice; fi
         - if [ “${AWS_BRANCH}” = “books_nuxtjs_basic” ];        then yarn run build:nuxtjs_basic; fi
         - if [ “${AWS_BRANCH}” = “books_nuxtjs_firebase” ];     then yarn run build:nuxtjs_firebase; fi
         - if [ “${AWS_BRANCH}” = “books_nuxtjs_practice” ];     then yarn run build:nuxtjs_practice; fi
-        - if [ “${AWS_BRANCH}” = “event164588” ];     then yarn run build:laravelapi_basic; fi
-        - if [ “${AWS_BRANCH}” = “event164587” ];     then yarn run build:nuxtjs_basic; fi
         - if [ “${AWS_BRANCH}” = “event166720” ];     then yarn run build:nuxtjs_basic; fi
         - if [ “${AWS_BRANCH}” = “event164587” ];     then yarn run build:nuxtjs_practice; fi
         - 'yarn run docs:build -d ../../dist'

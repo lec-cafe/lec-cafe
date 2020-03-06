@@ -11,6 +11,7 @@
     "dev:nuxtjs_practice": "vuepress dev books/nuxtjs_practice/books",
     "dev:nuxtjs_firebase": "vuepress dev books/nuxtjs_firebase/books",
     "build:github_basic": "vuepress build -d ./dist books/github_basic/books",
+    "build:jslang": "vuepress build -d ./dist books/jslang/books",
     "build:laravelapi_basic": "vuepress build -d ./dist books/laravelapi_basic/books",
     "build:laravelapi_practice": "vuepress build -d ./dist books/laravelapi_practice/books",
     "build:nuxtjs_basic": "vuepress build -d ./dist books/nuxtjs_basic/books",
