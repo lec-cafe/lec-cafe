@@ -5,7 +5,7 @@
 Nuxt.jsでSCSSを利用する場合、
 追加でSCSS関連のモジュールをインストールする必要があります。
 
-### node-sass を利用する
+### node-sassを利用する
 
 ```bash
 $ npm install node-sass sass-loader
@@ -13,12 +13,12 @@ $ npm install node-sass sass-loader
 
 上記のインストールが完了すると、SCSSのセットアップが完了します。
 
-### dart-sass を利用する
+### dart-sassを利用する
 
-一般的に SCSS のコンパイルには node-sass が利用されますが、
-node-sass には インストールが遅い、Node のバージョンに伴うエラーが頻発する、などの問題もあります。
+一般的にSCSSのコンパイルにはnode-sassが利用されますが、
+node-sassにはインストールが遅い、Nodeのバージョンに伴うエラーが頻発する、などの問題もあります。
 
-これらの問題を解決するために、dart-sass を利用して SCSS のコンパイルを行うこともできます。
+これらの問題を解決するために、dart-sassを利用してSCSSのコンパイルを行うこともできます。
 
 ```bash
 $ npm install sass sass-loader fibers
@@ -46,9 +46,9 @@ export default {
 }
 ```
 
-## SCSS 記述の活用
+## SCSS記述の活用
 
-### Vue コンポーネント内での SCSS の利用
+### Vueコンポーネント内でのSCSSの利用
 
 Vueコンポーネント内でSCSS記法を利用する場合、
 以下のようにstyle要素にlang属性を指定します。

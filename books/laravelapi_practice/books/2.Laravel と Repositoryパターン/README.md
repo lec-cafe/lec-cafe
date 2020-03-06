@@ -10,7 +10,7 @@ Repositoryパターンは、アプリケーションにおけるデータ操作�
 簡単なステップでRepositoryクラスを作成しながら、
 Repositoryパターンの実践について確認していきましょう。
 
-## Actionクラスの生成
+## アクションクラスの生成
 
 まずはサンプルのルートを作成してみましょう。
 
@@ -329,6 +329,6 @@ class TaskObject implements \JsonSerializable
 ```
 
 JsonSerializableインタフェースはオブジェクトがJSON化された際の挙動を制御する
-インターフェイスです。 `jsonSerialize` メソドの中で任意の配列をreturnすることで
+インタフェースです。 `jsonSerialize` メソドの中で任意の配列をreturnすることで
 JSON化された際の表現形式を制御する事ができます。
 

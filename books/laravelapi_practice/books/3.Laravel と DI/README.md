@@ -255,7 +255,7 @@ class TaskRepository implements TaskRepositoryInterface
 
 最後にDIコンテナの依存解決処理を記述します。
 引数にインタフェースを与えた場合の、依存の自動解決はできないため、
-常にServiceProviderを利用して、インターフェイスに該当するRepositoryの指定を行う必要があります。
+常にServiceProviderを利用して、インタフェースに該当するRepositoryの指定を行う必要があります。
 
 ```php
 <?php

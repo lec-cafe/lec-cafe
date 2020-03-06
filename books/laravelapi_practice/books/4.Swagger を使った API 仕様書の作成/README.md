@@ -161,7 +161,7 @@ https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.2.md#param
 - query : URL内で ? を用いて添えられるクエリパラメータ
 - header : リクエストヘッダ上で送信されるパラメータ
 - path: URLの一部として送信されるパスパラメータ
-- Cookie : cookieを用いて送信されるパラメータ
+- Cookie : Cookieを用いて送信されるパラメータ
 
 `in` セクションの内容によって記述すべき項目が異なるため注意が必要です。
 
