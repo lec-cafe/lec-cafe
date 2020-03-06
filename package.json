@@ -4,6 +4,7 @@
     "docs:dev": "vuepress dev books",
     "docs:build": "vuepress build books",
     "dev:github_basic": "vuepress dev books/github_basic/books",
+    "dev:jslang": "vuepress dev books/jslang/books",
     "dev:laravelapi_basic": "vuepress dev books/laravelapi_basic/books",
     "dev:laravelapi_practice": "vuepress dev books/laravelapi_practice/books",
     "dev:nuxtjs_basic": "vuepress dev books/nuxtjs_basic/books",
