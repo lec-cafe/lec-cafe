@@ -1,7 +1,8 @@
 # lec-cafe
 
+## amplify
 
-
+https://console.aws.amazon.com/amplify/home?region=us-east-1#/d3muvkqb3ogkfv
 
 
 
