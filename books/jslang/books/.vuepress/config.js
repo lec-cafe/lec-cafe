@@ -28,6 +28,15 @@ GIthub のチームでの使い方 ( Issue / Pull Request )    `,
           '/3.2.JavaScriptの配列操作',
           '/3.3.JavaScriptのオブジェクト操作',
           // '/3.4.関数の利用Untitled',
+          '/3.5.JSON の利用',
+        ]
+      },
+      {
+        title: 'ブラウザのAPI',
+        children: [
+          // '/9.1.モジュールシステムの利用',
+          '/5.1.localStorage',
+          '/5.2.Timer',
         ]
       },
       '/4.JavaScript文法の注意点',
