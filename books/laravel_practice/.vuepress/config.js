@@ -22,8 +22,6 @@ module.exports = {
       {
         title: '補足資料',
         children: [
-          '/9.環境構築 Vagrant/',
-          '/9.環境構築 Mac/',
         ]
       },
     ],
