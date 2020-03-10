@@ -11,16 +11,7 @@ frontend:
         - npm install
     build:
       commands:
-        - if [ “${AWS_BRANCH}” = “books_github_basic” ];        then yarn run build:github_basic; fi
-        - if [ “${AWS_BRANCH}” = “books_jslang” ];              then npm run build -- jslang; fi
-        - if [ “${AWS_BRANCH}” = “books_laravelapi_basic” ];    then yarn run build:laravelapi_basic; fi
-        - if [ “${AWS_BRANCH}” = “books_laravelapi_practice” ]; then yarn run build:laravelapi_practice; fi
-        - if [ “${AWS_BRANCH}” = “books_laravel_practice” ];    then npm run build -- laravel_practice; fi
-        - if [ “${AWS_BRANCH}” = “books_nuxtjs_basic” ];        then yarn run build:nuxtjs_basic; fi
-        - if [ “${AWS_BRANCH}” = “books_nuxtjs_firebase” ];     then yarn run build:nuxtjs_firebase; fi
-        - if [ “${AWS_BRANCH}” = “books_nuxtjs_practice” ];     then yarn run build:nuxtjs_practice; fi
-        - if [ “${AWS_BRANCH}” = “event166720” ];     then yarn run build:nuxtjs_basic; fi
-        - if [ “${AWS_BRANCH}” = “event164587” ];     then yarn run build:nuxtjs_practice; fi
+        - npm run build -- ${AWS_BRANCH}
   artifacts:
     baseDirectory: dist
     files:

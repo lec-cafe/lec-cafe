@@ -1,11 +1,11 @@
 deploy:
 	 git push origin \
 	 	master:master \
-	 	master:books_github_basic \
-	 	master:books_jslang \
-	 	master:books_laravelapi_basic \
-	 	master:books_laravelapi_practice \
-	 	master:books_laravel_practice \
-	 	master:books_nuxtjs_basic \
-	 	master:books_nuxtjs_firebase \
-	 	master:books_nuxtjs_practice \
+	 	master:books/github_basic \
+	 	master:books/jslang \
+	 	master:books/laravelapi_basic \
+	 	master:books/laravelapi_practice \
+	 	master:books/laravel_practice \
+	 	master:books/nuxtjs_basic \
+	 	master:books/nuxtjs_firebase \
+	 	master:books/nuxtjs_practice \
