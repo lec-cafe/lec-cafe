@@ -1,4 +1,4 @@
-const commonConfig = require("../../libs/common.config")
+const commonConfig = require("../../../libs/common.config")
 
 // .vuepress/config.js
 module.exports = {
