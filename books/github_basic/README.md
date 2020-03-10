@@ -1,26 +1,10 @@
-## TerminalでのGit/Github入門
+---
+---
+# TerminalでのGit/Github入門
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/8e092402-7297-4114-9c97-e1e9ed77f8a4/deploy-status)](https://app.netlify.com/sites/books-github-intro/deploys)
+![](/images/leccafe.png)
 
-https://github-basic.lec.cafe/
-
-## Usage
-
-install dependency
-
-```bash
-$ yarn
-```
-
-launch local server
-
-```bash
-$ yarn run docs:dev
-```
-
-## Contents
-
-Terminal (黒い画面） を使ってのGit/Githubの使い方をマスタします。
+Terminal (黒い画面）を使ってのGit/Githubの使い方をマスタします。
 
 Githubを操作しながらWebサイトの公開ができるNetlifyを利用して、 実際のWebサイト制作をイメージしながらGitの操作を体験してみましょう。
 
@@ -35,3 +19,10 @@ Githubを操作しながらWebサイトの公開ができるNetlifyを利用し�
 - 黒い画面を使ったGitの操作に興味がある方
 - Git/Githubを使ったワークフローに興味がある方
 - Netlifyを使ったサイト公開に興味がある方
+
+## 参考ドキュメント
+
+## イベント開催履歴
+
+https://connpass.com/event/150835/
+
