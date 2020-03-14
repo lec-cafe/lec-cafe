@@ -20,3 +20,12 @@ $ vuepress dev books/laravel-practice
 ```
 
 
+## vuepressがインストール出来ない場合
+
+該当の資料の `.vuepress` フォルダがある場所までのパスを指定してからサーバーを建てます。
+
+```bash
+$ npm run dev -- books/{編集するフォルダ}
+```
+
+
