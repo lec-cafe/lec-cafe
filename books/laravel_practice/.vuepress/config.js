@@ -12,12 +12,27 @@ module.exports = {
     sidebar: [
       '/1.アプリケーションの設計',
       {
-        title: 'Laravel と Database',
+        title: 'Database と Eloquent の活用',
         children: [
-          '/2.1.Schema',
-          '/2.2.Seeder',
-          '/2.3.Eloquentの基本操作',
-          '/2.4.Eloquentとリレーション',
+          '/2.Eloquent の活用/',
+          '/2.Eloquent の活用/2.1.テーブルの作成',
+          '/2.Eloquent の活用/2.2.リレーションの活用',
+          '/2.Eloquent の活用/2.3.Factoryの活用',
+        ]
+      },
+      {
+        title: 'Schema & Eloquent',
+        children: [
+          '/6.Schema&Eloquent/6.1.Schema',
+          '/6.Schema&Eloquent/6.2.Seeder',
+          '/6.Schema&Eloquent/6.3.Eloquentの基本操作',
+          '/6.Schema&Eloquent/6.4.Eloquentとリレーション',
+        ]
+      },
+      {
+        title: 'Digging Deeper',
+        children: [
+          '/7.DiggingDeeper/7.1.Artisan Console',
         ]
       },
       {
