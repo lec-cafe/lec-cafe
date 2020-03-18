@@ -13,7 +13,7 @@ module.exports = {
       '/1.Nuxt.js でのサイト構築/',
       {
         title: 'Nuxt.jsでのTODO アプリ開発',
-        path: "/lesson/memo/",
+        path: "/3.memoapp/",
         children: [
           '/1.Nuxt.jsでのSPA開発/1.views/',
           '/1.Nuxt.jsでのSPA開発/2.axios/',
@@ -23,16 +23,20 @@ module.exports = {
       },
       {
         title: 'Vue.js の活用',
+        // path: "/6.vuejs/",
         children: [
-          '/6.1.Vuejsの基礎文法/',
-          '/6.3.vueコンポーネントの活用/',
+          '/6.vuejs/1.basic',
+          '/6.vuejs/3.component',
         ]
       },
       {
         title: 'Nuxt.js の活用',
+        // path: "/6.vuejs/",
         children: [
-          '/7.1.レイアウトとルート/',
-          '/7.2.SCSS の利用/',
+          '/7.nuxtjs/1.layout',
+          '/7.nuxtjs/2.scss',
+          '/7.nuxtjs/3.ssr',
+          '/7.nuxtjs/4.lint',
         ]
       },
       {
