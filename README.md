@@ -16,7 +16,6 @@ $ npm i -g vuepress
 該当の資料の `.vuepress` フォルダがある場所までのパスを指定します。
 
 ```bash
-$ vuepress dev books/laravel-practice
+$ npm run dev -- books/{編集するフォルダ}
 ```
-
 
