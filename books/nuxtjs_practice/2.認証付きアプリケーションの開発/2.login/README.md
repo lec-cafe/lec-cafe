@@ -32,7 +32,7 @@ $ npm i @nuxtjs/axios
 
 モジュールのインストールが終わったら、`nuxt.config.js`を修正し、
 `modules` セクションへのaxiosモジュールの追加と、
-GitHub API をコールするための axios の接続設定を記述しておきましょう。
+GitHub APIをコールするためのaxiosの接続設定を記述しておきましょう。
 。
 
 ```js
@@ -54,7 +54,7 @@ export default {
 
 今回は最初からVuexStoreを利用して、StoreモジュールベースでAPIの処理を記述していきます。
 
-`store/user.js` を作成して、以下のような形で Vuex ファイルを作成します。
+`store/user.js` を作成して、以下のような形でVuexファイルを作成します。
 
 ```js
 export const state = () => {
@@ -91,12 +91,12 @@ export const actions = {
 ```
 
 ::: tip
-プロジェクトで始めて store 内にファイルを配置する場合、
+プロジェクトで始めてstore内にファイルを配置する場合、
 `npm run dev` の再起動が必要になります。
 :::
 
-store ではユーザ情報の形を定義しています。
-GitHubのREST API で取得可能な項目は後述する API 仕様ドキュメントから確認できます。
+storeではユーザ情報の形を定義しています。
+GitHubのREST APIで取得可能な項目は後述するAPI仕様ドキュメントから確認できます。
 
 ```js
 export const state = () => {
@@ -106,7 +106,7 @@ export const state = () => {
 }
 ```
 
-mutation では単純に引数からデータを取得し、state にデータを格納しています。
+mutationでは単純に引数からデータを取得し、stateにデータを格納しています。
 
 ```js
 export const mutations = {
@@ -116,17 +116,17 @@ export const mutations = {
 }
 ```
 
-action では、実際のAPIコールを行っています。
+actionでは、実際のAPIコールを行っています。
 
-今回は`GET /user` API を利用して REST API をコールしています。
+今回は`GET /user` APIを利用してREST APIをコールしています。
 
 https://developer.github.com/v3/users/#get-the-authenticated-user 
 
-GitHub のREST APIではパスワード経由でのログインに対応していないため、
+GitHubのREST APIではパスワード経由でのログインに対応していないため、
 代わりにパーソナルアクセストークンを利用したログイン処理を実装しています。
 
 トークンを用いてREST APIをリクエストすることでユーザ情報が取得可能になっており、
-これらの情報をトークンとまとめて mutation 経由でストアに格納しています。
+これらの情報をトークンとまとめてmutation経由でストアに格納しています。
 
 ```js
 export const actions = {
@@ -178,12 +178,12 @@ export const actions = {
 ```
 
 ::: tip
-ログイン出来ない方は GitHub の Setting から、「Emails」 を選択し、
+ログイン出来ない方はGitHubのSettingから、「Emails」を選択し、
 `Keep my email addresses private` のチェックが外れていることを確認しましょう。
 :::
 
 ::: tip
-ログイン出来ない方は GitHub の Setting から、「Profile」 を選択し、
+ログイン出来ない方はGitHubのSettingから、「Profile」を選択し、
 `Public email` が設定されていることを確認しましょう。
 :::
 
@@ -215,9 +215,9 @@ export const actions = {
 </style>
 ```
 
-処理が記述できたら、実際に GitHub のEmailアドレスと、
-以下のURLから取得可能なGitHub のパーソナルアクセストークンでログインの処理を実行してみてください。
+処理が記述できたら、実際にGitHubのEmailアドレスと、
+以下のURLから取得可能なGitHubのパーソナルアクセストークンでログインの処理を実行してみてください。
 
 https://github.com/settings/tokens
 
-マイページに正しく遷移して、GitHub のユーザ名が表示されたら実装は成功です。
+マイページに正しく遷移して、GitHubのユーザ名が表示されたら実装は成功です。

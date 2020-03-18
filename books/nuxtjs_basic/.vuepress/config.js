@@ -11,7 +11,16 @@ module.exports = {
     ],
     sidebar: [
       '/1.Nuxt.js でのサイト構築/',
-      '/実践演習/',
+      {
+        title: 'Nuxt.jsでのTODO アプリ開発',
+        path: "/lesson/memo/",
+        children: [
+          '/1.Nuxt.jsでのSPA開発/1.views/',
+          '/1.Nuxt.jsでのSPA開発/2.axios/',
+          '/1.Nuxt.jsでのSPA開発/3.vuex/',
+          '/1.Nuxt.jsでのSPA開発/4.vuex-persistent-state/',
+        ]
+      },
       {
         title: 'Vue.js の活用',
         children: [
