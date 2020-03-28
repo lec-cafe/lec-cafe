@@ -1,4 +1,5 @@
 module.exports = {
+  base: "/laravel_graphql",
   title: 'Laravel REST API 開発 入門',
   description: 'Laravel を 利用してREST API を作成するための 入門講座です。',
   head: [
@@ -27,20 +28,9 @@ module.exports = {
       {text: 'Lec Café', link: 'https://leccafe.connpass.com/'},
     ],
     sidebar: [
-      '/1.タスクリストAPIの作成/',
-      '/1.5.認証APIの作成/',
-      '/2.Eloquent による DB 操作/',
-      // '/3.REST API の設計/',
-      '/4.REST API のテスト/',
-      '/5.REST API のデバッグ/',
-      '/実践演習/',
-      {
-        title: '補足資料',
-        children: [
-          '/9.環境構築 Vagrant/',
-          '/9.環境構築 Mac/',
-        ]
-      },
+      '/01.setup',
+      '/02.database',
+      '/03.query',
     ],
     repo: 'lec-cafe/books_laravelapi_basic',
     repoLabel: 'Github',
