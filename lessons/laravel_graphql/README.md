@@ -2,8 +2,14 @@
 
 ![](/images/leccafe.png)
 
+DEMO
 
 https://leccafe-sample-laravel-graphql.herokuapp.com/
+
+SAMPLE REPOSITORY
+
+https://github.com/lec-cafe/sample_laravel_graphql
+
 
 ## Contents
 
