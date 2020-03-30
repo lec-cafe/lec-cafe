@@ -1,37 +1,48 @@
-# Laravel で始める GraphQL 開発
+# Laravel GraphQL 開発 入門
 
 ![](/images/leccafe.png)
+
+
+https://leccafe-sample-laravel-graphql.herokuapp.com/
 
 ## Contents
 
 Laravelを利用して GraphQL アプリケーションを開発するための入門講座です。
 
+### [セットアップ](/01.setup)
 
-### 01.setup
+Laravel に lighthouse をインストールして
+GraphQLアプリケーションの開発環境をセットアップしましょう。
 
-### 02.database 
+### [タスクリストDBの作成](/02.database)
 
+アプリケーション開発で必要な データベース環境の構成を
+セットアップしましょう。
 
 ### 03.query
 
+lighthouse を利用して、
+タスク一覧を取得する GraphQL の Query を実装してみましょう。
 
 ### 04.mutations
 
-insert
+lighthouse を利用して、
+タスクを追加する GraphQL の Mutation を実装してみましょう。
 
 ### 05.mutations2
 
-update / delete
+lighthouse を利用して、
+タスクを更新・削除する GraphQL の Mutation を実装してみましょう。
 
 ### 06.input
 
-複雑な入力処理をまとめる
-
-query でも input 
+GraphQL の input を利用して複雑な入力の形にも対応する方法を確認しましょう。
 
 ### 07.validations
 
+Laravel lighthouse で、 GraphQL におけるバリデーション処理の方法を確認してみてみましょう。
 
+<!--
 ### 08.query2
 
 テーブルと紐付かない Response
@@ -53,10 +64,7 @@ query でも input
 
 Eloquent の拡張
 
-
-
-
-
+-->
 
 
 

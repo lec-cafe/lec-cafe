@@ -1,41 +1,21 @@
+const commonConfig = require("../../../libs/common.config")
+
 module.exports = {
+  ...commonConfig,
   base: "/laravel_graphql",
-  title: 'Laravel REST API 開発 入門',
-  description: 'Laravel を 利用してREST API を作成するための 入門講座です。',
-  head: [
-    ['script', {src: "https://static.codepen.io/assets/embed/ei.js"}]
-  ],
-  locales: {
-    '/': {
-      lang: 'ja',
-    },
-  },
-  markdown: {
-    anchor: {
-      level: [1, 2, 3],
-      slugify: (s) => encodeURIComponent(String(s).trim().toLowerCase().replace(/\s+/g, '-')),
-      permalink: true,
-      permalinkBefore: true,
-      permalinkSymbol: '#'
-    },
-    config: md => {
-      md.use(require('markdown-it-playground'))
-    },
-    linkify: true
-  },
+  title: 'Laravel GraphQL 開発 入門',
+  description: 'Laravel と lighthouse を利用して GraphQL を作成するための 入門講座です。',
   themeConfig: {
-    nav: [
-      {text: 'Lec Café', link: 'https://leccafe.connpass.com/'},
-    ],
+    ...commonConfig.themeConfig,
     sidebar: [
       '/01.setup',
       '/02.database',
       '/03.query',
+      '/04.mutations',
+      '/05.mutations2',
+      '/06.input',
+      '/07.validations',
     ],
-    repo: 'lec-cafe/books_laravelapi_basic',
-    repoLabel: 'Github',
-    docsDir: 'books',
-    editLinks: true,
-    editLinkText: 'ページに不明点や誤字等があれば、Github にて修正を提案してください！'
+    docsDir: 'lessons/laravel_graphql',
   }
 }
