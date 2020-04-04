@@ -4,8 +4,8 @@ module.exports = {
   ...commonConfig,
   base: "/nuxtjs_website",
   dest: "dist/nuxtjs_website",
-  title: 'Laravel GraphQL 開発 入門',
-  description: 'Laravel と lighthouse を利用して GraphQL を作成するための 入門講座です。',
+  title: 'Nuxt.js で始める Webサイト制作',
+  description: 'Nuxt.js で始める Webサイト制作の入門講座です。',
   themeConfig: {
     ...commonConfig.themeConfig,
     sidebar: [
@@ -18,6 +18,6 @@ module.exports = {
       '/07.assets',
       '/08.meta',
     ],
-    docsDir: 'lessons/laravel_graphql',
+    docsDir: 'lessons/nuuxtjs_website',
   }
 }
