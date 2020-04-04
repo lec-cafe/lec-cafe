@@ -3,6 +3,7 @@
   "scripts": {
     "dev": "vuepress dev",
     "build_netlify": "run-p build_netlify:*",
+    "build_netlify:top": "vuepress build lessons/top",
     "build_netlify:laravel_graphql": "vuepress build lessons/laravel_graphql",
     "build_netlify:nuxtjs_website" : "vuepress build lessons/nuxtjs_website",
     "build": "vuepress build -d ./dist",
