@@ -12,6 +12,8 @@ https://github.com/lec-cafe/sample_laravel_graphql
 
 ## Contents
 
+
+
 ### nuxt.js とバインディング(01)
 
 バインディング、属性のバインディング
