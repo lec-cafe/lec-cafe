@@ -2,7 +2,7 @@ const commonConfig = require("../../../libs/common.config")
 
 module.exports = {
   ...commonConfig,
-  base: "/nuxtjs_website",
+  base: "/nuxtjs_website/",
   dest: "dist/nuxtjs_website",
   title: 'Nuxt.js で始める Webサイト制作',
   description: 'Nuxt.js で始める Webサイト制作の入門講座です。',
