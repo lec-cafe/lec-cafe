@@ -2,6 +2,9 @@
   "private": true,
   "scripts": {
     "dev": "vuepress dev",
+    "build_netlify": "run-p build_netlify:*",
+    "build_netlify:laravel_graphql": "vuepress build lessons/laravel_graphql",
+    "build_netlify:nuxtjs_website" : "vuepress build lessons/nuxtjs_website",
     "build": "vuepress build -d ./dist",
     "build:github_basic": "vuepress build -d ./dist books/github_basic/books",
     "build:laravelapi_basic": "vuepress build -d ./dist books/laravelapi_basic/books",
@@ -15,6 +18,7 @@
   },
   "dependencies": {
     "linkify-it": "^2.2.0",
+    "npm-run-all": "^4.1.5",
     "textlint": "^11.6.1",
     "textlint-rule-max-ten": "^2.0.3",
     "textlint-rule-no-mix-dearu-desumasu": "^4.0.0",
