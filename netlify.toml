@@ -5,5 +5,5 @@
   publish = "/dist/"
 
   # Default build command.
-  command = "npm run deploy_netlify"
+  command = "npm run build_netlify"
 
