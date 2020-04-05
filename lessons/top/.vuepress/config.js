@@ -10,6 +10,6 @@ module.exports = {
     ...commonConfig.themeConfig,
     sidebar: [
     ],
-    docsDir: 'lessons/toppage',
+    docsDir: 'lessons/top',
   }
 }
