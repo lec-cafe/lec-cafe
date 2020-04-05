@@ -1,5 +1,6 @@
 // .vuepress/config.js
 module.exports = {
+  theme: "@chatbox-inc/vuepress-theme-leccafe",
   head: [
     ['script', {src: "https://static.codepen.io/assets/embed/ei.js"}]
   ],
