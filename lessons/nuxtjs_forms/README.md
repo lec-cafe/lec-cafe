@@ -14,6 +14,8 @@ https://github.com/lec-cafe/sample_laravel_graphql
 
 ### 1.セットアップ
 
+Nuxt.js 環境のセットアップと画面のレイアウトを作成します。
+
 ### 2.フォームの作成
 
 ### 3.バリデーションの実装

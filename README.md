@@ -1,5 +1,7 @@
 # lec-cafe
 
+https://docs.google.com/spreadsheets/d/1yCvZuo9pEQM3zXQn81zNbBa1KStm8zID2hw5kfZ7xuk/edit#gid=891965617
+
 ## amplify
 
 https://console.aws.amazon.com/amplify/home?region=us-east-1#/d3muvkqb3ogkfv

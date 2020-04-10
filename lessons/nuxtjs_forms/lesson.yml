@@ -1,0 +1,46 @@
+
+lessons:
+  01.setup:
+    title: セットアップ
+    description: |
+      Nuxt.js 環境のセットアップと画面のレイアウトを作成します。
+  02.model:
+    title: バリデーションの実装
+    description: |
+      基本的な必須バリデーションの実装を行います。
+  03.validation:
+    title: バリデーションの実装
+    description: |
+      基本的な必須バリデーションの実装を行います。
+  04.validation2:
+    title: バリデーションの実装2
+    description: |
+      max などのカスタムルールの活用を考えます。
+  05.errors:
+    title: バリデーションエラーの表示
+    description: |
+      バリデーションエラーの表示
+  06.customrule:
+    title: カスタムルールの実装
+    description: |
+      カスタムルールの実装例
+  07.components:
+    title: フォームコンポーネントの分割
+    description: |
+      フォームコンポーネントの分割
+  08.files:
+    title: バリデーション実装のススメ
+    description: |
+      バリデーション実装の際のファイル分割の方法について
+  09.問い合わせAPI の実装:
+    title: バリデーション実装のススメ
+    description: |
+      バリデーション実装の際のファイル分割の方法について
+  10.様々なイベントの取得:
+    title: バリデーション実装のススメ
+    description: |
+      バリデーション実装の際のファイル分割の方法について
+
+
+
+
