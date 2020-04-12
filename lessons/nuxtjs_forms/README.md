@@ -1,40 +1,19 @@
-# Nuxt.js/Vue.js で作る Webサイト入門
-
-![](/images/leccafe.png)
-
-DEMO
-
-
-SAMPLE REPOSITORY
-
-https://github.com/lec-cafe/sample_laravel_graphql
-
-
-## Contents
-
-### 1.セットアップ
-
-Nuxt.js 環境のセットアップと画面のレイアウトを作成します。
-
-### 2.フォームの作成
-
-### 3.バリデーションの実装
-
-必須バリデーションをつける
-
-### 4.バリデーションの実装
-
-カスタムバリデーションをつける
-
-### 5.エラーメッセージの表示
-
-### 6.カスタムバリデーションの実装
-
-### 7.バリデーションファイルの構造化
-
-### 8.フォームコンポーネントの分割
+---
+layout: TopPage
+heroImage: /images/leccafe.png
+heroText: Hero Title
+tagline: Hero subtitle
+actionText: Get Stddddarted →
+actionLink: /guide/
+features:
+- title: Simplicity First
+  details: Minimal setup with markdown-centered project structure helps you focus on writing.
+- title: Vue-Powered
+  details: Enjoy the dev experience of Vue + webpack, use Vue components in markdown, and develop custom themes with Vue.
+- title: Performant
+  details: VuePress generates pre-rendered static HTML for each page, and runs as an SPA once a page is loaded.
+footer: MIT Licensed | Copyright © 2018-present Evan You
+---
 
 
-
-
-
+hogehoge

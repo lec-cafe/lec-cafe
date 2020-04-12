@@ -1,8 +1,6 @@
 ---
 layout: TopPage
 heroImage: /images/leccafe.png
-heroText: Hero Title
-tagline: Hero subtitle
 actionText: Get Stddddarted →
 actionLink: /guide/
 features:

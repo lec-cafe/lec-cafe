@@ -18,12 +18,11 @@
 
       <p
         class="description"
-      >
-        {{ $site.description }}
-      </p>
+        v-text="$site.description"
+      />
 
       <p
-        v-if="data.actionText && data.actionLink"
+        v-if="$themeConfig.video"
         class="action"
       >
         <NavLink
@@ -43,12 +42,11 @@
         class="feature"
       >
         <h2>{{ page.title }}</h2>
-        <p>{{ page.frontmatter.description }}</p>
+        <p>{{ page.description }}</p>
         <p><NavLink :item="pageLink(page.path)"/></p>
       </div>
     </div>
 
-    <Content class="theme-default-content custom" />
 
     <div
       v-if="data.footer"
@@ -73,7 +71,7 @@ export default {
     },
     actionLink () {
       return {
-        link: this.data.actionLink,
+        link: this.$themeConfig.video,
         text: "YouTube 動画を見る"
       }
     },
@@ -120,6 +118,8 @@ export default {
       font-size 1.2rem
       line-height 1.3
       color lighten($textColor, 40%)
+      white-space: pre-wrap
+      text-align: left
     .action-button
       display inline-block
       font-size 1.2rem
