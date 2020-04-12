@@ -1,0 +1,50 @@
+title: Nuxt.js で始める Webサイト制作
+description: |
+  Nuxt.js は、Vue.js 製のSPAサイトを構築するためのフレームワークです。
+
+  Nuxt.js でのシンプルな Web サイト制作を通じて、
+  SPA 構築のフローや、基礎的な Vue.js / Nuxt.js の使い方をマスターしていきましょう。
+video: https://www.youtube.com/playlist?list=PL-O6nR6iHzaERehFEq79d4NVESBrFBwRw
+sidebar:
+  - /01.setup.md
+  - /02.page.md
+  - /03.layout.md
+  - /04.routing.md
+  - /05.scss.md
+  - /06.build.md
+  - /07.assets.md
+  - /08.meta.md
+lessons:
+  01.setup.md:
+    title: セットアップ
+    description: |
+      Node.js の実行環境を用意して、Nuxt.js 利用するためのセットアップを行いましょう。
+    video: https://www.youtube.com/watch?v=eYT0DmD3HrE
+  02.page.md:
+    title: wordpress.com のセットアップ
+    description: |
+      Nuxt.js のセットアップが完了したら実際のコーディングを進めていきましょう。
+  03.layout.md:
+    title: 一覧画面の描画
+    description: |
+      レイアウトファイルを利用して、ページ全体での共通要素の管理方法を確認していきましょう。
+  04.routing.md:
+    title: 詳細画面の描画
+    description: |
+      router-link を利用して SPA 形式のページ遷移を行う方法を確認しましょう。
+  05.scss.md:
+    title: カテゴリページの描画
+    description: |
+      Nuxt.js のプロジェクトで SCSS を利用する方法を確認しましょう。
+  06.build.md:
+    title: 動的ルートの生成
+    description: |
+      Nuxt.js で作成した サイトを Web サーバに公開する手順を確認してみましょう。
+  07.assets.md:
+    title: 画像の管理
+    description: |
+      Nuxt.js のプロジェクトにおける画像の取り扱い方法を確認してみましょう。
+  08.meta.md:
+    title: メタ要素の記述とSEO
+    description: |
+      Nuxt.js のプロジェクトで title 要素やメタ要素を指定する方法を確認しましょう。
