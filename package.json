@@ -6,6 +6,7 @@
     "build_netlify:top": "vuepress build lessons/top",
     "build_netlify:laravel_graphql": "vuepress build lessons/laravel_graphql",
     "build_netlify:nuxtjs_website": "vuepress build lessons/nuxtjs_website",
+    "build_netlify:nuxtjs_forms": "vuepress build lessons/nuxtjs_forms",
     "build": "vuepress build -d ./dist",
     "build:github_basic": "vuepress build -d ./dist books/github_basic/books",
     "build:laravelapi_basic": "vuepress build -d ./dist books/laravelapi_basic/books",
