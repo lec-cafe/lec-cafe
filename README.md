@@ -1,10 +1,11 @@
 # lec-cafe
+[![Netlify Status](https://api.netlify.com/api/v1/badges/1403bae0-1bec-4148-aa8b-a30d906f73a1/deploy-status)](https://app.netlify.com/sites/lec-cafe-lessons/deploys)
 
 https://docs.google.com/spreadsheets/d/1yCvZuo9pEQM3zXQn81zNbBa1KStm8zID2hw5kfZ7xuk/edit#gid=891965617
 
-## amplify
+## netlify 
 
-https://console.aws.amazon.com/amplify/home?region=us-east-1#/d3muvkqb3ogkfv
+https://lessons.lec.cafe/
 
 ## setup
 
