@@ -8,13 +8,13 @@ video: https://www.youtube.com/playlist?list=PL-O6nR6iHzaERehFEq79d4NVESBrFBwRw
 repository:
 sidebar:
   - /01.setup.md
-  - /02.page.md
-  - /03.layout.md
-  - /04.routing.md
-  - /05.scss.md
-  - /06.build.md
-  - /07.assets.md
-  - /08.meta.md
+  - /02.wordpress.md
+  - /03.listpage.md
+  - /04.detailpage.md
+  - /05.archieve.md
+  - /06.generate.md
+  - /07.seo.md
+  - /08.sitemap.md
 lessons:
   01.setup.md:
     title: セットアップ
