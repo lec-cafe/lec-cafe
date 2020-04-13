@@ -4,7 +4,7 @@
     "dev": "vuepress dev",
     "build_netlify": "run-s build_netlify_first build",
     "build_netlify_first": "vuepress build lessons/top",
-    "build": "run-s build:*",
+    "build": "run-p build:*",
     "build:laravel_graphql": "vuepress build lessons/laravel_graphql",
     "build:nuxtjs_website": "vuepress build lessons/nuxtjs_website",
     "build:nuxtjs_forms": "vuepress build lessons/nuxtjs_forms",
