@@ -1,4 +1,4 @@
-# Nuxt.js/Vue.js で作る Webサイト入門
+# Nuxt.js/Vue.jsで作るWebサイト入門
 
 ![](/images/leccafe.png)
 
@@ -14,48 +14,48 @@ https://github.com/lec-cafe/sample_laravel_graphql
 
 
 
-### nuxt.js とバインディング(01)
+### nuxt.jsとバインディング（01)
 
 バインディング、属性のバインディング
 
-### nuxt.js とディレクティブ(02)
+### nuxt.jsとディレクティブ（02)
 
 v-if v-for
 
-### nuxt.js のコンポーネント(03)
+### nuxt.jsのコンポーネント（03)
 
-### nuxtjsで作るナビゲーション(04)
+### nuxtjsで作るナビゲーション（04)
 
-v-for を使ったナビゲーション 
-:class であれする
+v-forを使ったナビゲーション 
+:classであれする
 
-### nuxtjsで作るタブ(05)
+### nuxtjsで作るタブ（05)
 
 ナビゲーションの応用でタブを作る
-router-link のクラスとかも応用で使える。
+router-linkのクラスとかも応用で使える。
 
-### nuxtjsで作るモーダル(06)
+### nuxtjsで作るモーダル（06)
 
-@click と v-if でモーダル作る
+@clickとv-ifでモーダル作る
 
-### nuxjsで作るモーダル2 背景固定(07)
+### nuxjsで作るモーダル2背景固定（07)
 
-body lock で固定する
+body lockで固定する
 
 ### nuxjsで作るハンバーガーメニュー(08)
 
-ハンバーガーメニューを モーダル同様に作る
+ハンバーガーメニューをモーダル同様に作る
 
-### nuxtjsで作るトップに戻る(09)
+### nuxtjsで作るトップに戻る（09)
 
-v-scroll to でトップに戻る
+v-scroll toでトップに戻る
 
-### nuxjsで作るアニメーション(10)
+### nuxjsで作るアニメーション（10)
 
 モーダルにアニメーションつける
-animate.css で
+animate.cssで
 
 ### nuxjsで作るアニメーション2(11)
 
 モーダルにアニメーションつける。
-カスタム CSS で
+カスタムCSSで

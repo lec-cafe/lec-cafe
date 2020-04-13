@@ -1,4 +1,4 @@
-# Nuxt.js/Vue.js で作る Webサイト入門
+# Nuxt.js/Vue.jsで作るWebサイト入門
 
 ![](/images/leccafe.png)
 
@@ -12,27 +12,27 @@ https://github.com/lec-cafe/sample_laravel_graphql
 
 ## Contents
 
-### eslint のセットアップ
+### eslintのセットアップ
 
-### eslint のルールカスタマイズ
+### eslintのルールカスタマイズ
 
-no-v-html などを例に
+no-v-htmlなどを例に
 
-### scoped css であれする
+### scoped cssであれする
 
 カスタムルールの追加
 
-### eslint の自動化
+### eslintの自動化
 
-### husky でコミットフック
+### huskyでコミットフック
 
-### github actions でCI 化
+### github actionsでCI化
 
-### stylelint の導入
+### stylelintの導入
 
-### stylelint で BEM の制御
+### stylelintでBEMの制御
 
-### stylelint で 詳細度の制御
+### stylelintで詳細度の制御
 
 
 

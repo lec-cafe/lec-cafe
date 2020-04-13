@@ -10,7 +10,7 @@
     "build:nuxtjs_forms": "vuepress build lessons/nuxtjs_forms",
     "build:nuxtjs_blog": "vuepress build lessons/nuxtjs_blog",
     "lint": "textlint ./books/**/*.md",
-    "lintfix": "textlint --fix ./books/**/**/**/*.md"
+    "lintfix": "textlint --fix ./lessons/**/**/**/*.md"
   },
   "dependencies": {
     "@chatbox-inc/vuepress-plugin-leccafe": "file:plugins/leccafe",

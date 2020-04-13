@@ -13,5 +13,5 @@ features:
 footer: MIT Licensed | Copyright © 2018-present Evan You
 ---
 
-eyecatch を入れれたら OGP ができるのに…
+eyecatchを入れれたらOGPができるのに…
 
