@@ -11,6 +11,8 @@ module.exports = (site) =>{
     dest: `dist/${site}`,
     title: siteConfig.title,
     description: siteConfig.description,
+    temp: `/tmp/vuepress/tmp/${site}`,
+    cache: `/tmp/vuepress/cache/${site}`,
     theme: "@chatbox-inc/vuepress-theme-leccafe",
     head: [
       ['script', {src: "https://static.codepen.io/assets/embed/ei.js"}]
