@@ -15,6 +15,7 @@ sidebar:
   - /06.generate.md
   - /07.seo.md
   - /08.sitemap.md
+  - /09.paging.md
 lessons:
   01.setup.md:
     title: セットアップ
@@ -49,3 +50,7 @@ lessons:
     title: サイトマップの生成
     description: |
       Nuxt.js のプロジェクトで title 要素やメタ要素を指定する方法を確認しましょう。
+  09.sitemap.md:
+    title: ページネーションの生成
+    description: |
+      Nuxt.js のブログサイトで一覧画面にページネーション作る方法を確認しましょう。
