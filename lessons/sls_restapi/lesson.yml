@@ -1,0 +1,72 @@
+title: Nuxt.js で作るバリデーションフォーム
+description: |
+  Nuxt.js と vuelidate を利用して、バリデーション付きのフォームを作成する方法を紹介します。
+video:
+demo:
+  repos: https://github.com/lec-cafe/sample_nuxtjs_form
+  url: https://nuxtjs-forms.netlify.com
+
+sidebar:
+  - /01.setup.md
+  - /02.model.md
+  - /03.validation.md
+  - /04.validation2.md
+  - /05.errors.md
+  - /06.components.md
+lessons:
+  01.setup.md:
+    title: セットアップ
+    description: |
+      まずはじめに、serverless での開発を始めるための、
+      AWS 環境のセットアップを始めましょう。
+  02.serverless.md:
+    title: サンプル API のデプロイ
+    description: |
+      serverless を利用して サンプルの API を作成しします。
+      デプロイ & 実行 のフローを確認して、serverless の基本開発フローを学んでいきます。
+  03.restapi.md:
+    title: API の実装
+    description: |
+      serverless を利用した REST API の実装手法を確認していきましょう。
+  04.restapi2.md:
+    title: 他のサービスとの結合
+    description: |
+      REST API との連携等を通じて、より本格的なAPI 実装を進めていきます。
+  05.restapi3.md:
+    title: REST API のカスタマイズ
+    description: |
+      CORS の対応など
+  06.stage.md:
+    title: Serverless Stage の利用
+    description: |
+      stage を利用した、Serverless の環境構成
+  07.cd.md:
+    title: GitHub Actions による CD 環境構築
+    description: |
+      GitHub Actions を利用した CD 環境の構築
+  08.events.md:
+    title: AWS Scheduler の利用
+    description: |
+      GitHub Actions を利用した CD 環境の構築
+
+#  06.customrule:
+#    title: カスタムルールの
+#    実装
+#    description: |
+#      カスタムルールの実装例
+#  08.files:
+#    title: バリデーション実装のススメ
+#    description: |
+#      バリデーション実装の際のファイル分割の方法について
+#  09.問い合わせAPI の実装:
+#    title: バリデーション実装のススメ
+#    description: |
+#      バリデーション実装の際のファイル分割の方法について
+#  10.様々なイベントの取得:
+#    title: バリデーション実装のススメ
+#    description: |
+#      バリデーション実装の際のファイル分割の方法について
+#
+
+
+
