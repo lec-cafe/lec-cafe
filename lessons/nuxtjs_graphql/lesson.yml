@@ -1,0 +1,69 @@
+title: Nuxt.js で作るバリデーションフォーム
+description: |
+  Nuxt.js と vuelidate を利用して、バリデーション付きのフォームを作成する方法を紹介します。
+video:
+demo:
+  repos: https://github.com/lec-cafe/sample_nuxtjs_form
+  url: https://nuxtjs-forms.netlify.com
+
+sidebar:
+  - /01.setup.md
+  - /02.model.md
+  - /03.validation.md
+  - /04.validation2.md
+  - /05.errors.md
+  - /06.components.md
+lessons:
+  01.setup.md:
+    title: セットアップ
+    description: |
+      まずはじめに、フォームの実装を進めるにあたっての、
+      Nuxt.js 環境のセットアップと画面のレイアウトを作成しましょう。
+  02.graphql.md:
+    title: GraphQLの確認
+    description: |
+  03.listpage.md:
+    title: Issue 一覧の作成
+    description: |
+  04.detailpage.md:
+    title: Issue 詳細の作成
+    description: |
+      必須のバリデーションが用意できたら、フォーム全体に適切なバリデーションルールを設定していきましょう。
+      required 以外の組み込みルールや、カスタムバリデーションの利用を紹介していきます。
+  05.create.md:
+    title: Issue 作成画面の作成
+    description: |
+  06.formcomponent.md:
+    title: フォームコンポーネントの分割
+    description: |
+      フォームにバリデーションを付与したり、コンポーネント分割を入れて
+      より実際のアプリケーション開発に近づけていきます。
+  07.auth.md:
+    title: 認証機能の実装
+    description: |
+      認証の機能を実装して、トークンをユーザから取得するように調整します。
+  08.auth.md:
+    title: 認証機能の実装
+    description: |
+      認証の機能を実装して、トークンをユーザから取得するように調整します。
+#  06.customrule:
+#    title: カスタムルールの
+#    実装
+#    description: |
+#      カスタムルールの実装例
+#  08.files:
+#    title: バリデーション実装のススメ
+#    description: |
+#      バリデーション実装の際のファイル分割の方法について
+#  09.問い合わせAPI の実装:
+#    title: バリデーション実装のススメ
+#    description: |
+#      バリデーション実装の際のファイル分割の方法について
+#  10.様々なイベントの取得:
+#    title: バリデーション実装のススメ
+#    description: |
+#      バリデーション実装の際のファイル分割の方法について
+#
+
+
+

@@ -1,4 +1,4 @@
-module.exports = require("../../config")("sls_restapi")
+module.exports = require("../../config")("nuxtjs_forms")
 // module.exports = {}
 
 //const commonConfig = require("../../../libs/common.config")

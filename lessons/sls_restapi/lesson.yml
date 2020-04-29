@@ -8,11 +8,14 @@ demo:
 
 sidebar:
   - /01.setup.md
-  - /02.model.md
-  - /03.validation.md
-  - /04.validation2.md
-  - /05.errors.md
-  - /06.components.md
+  - /02.serverless.md
+  - /03.restapi.md
+  - /04.restapi2.md
+  - /05.restapi3.md
+  - /06.restapi4.md
+  - /07.stage.md
+  - /08.events.md
+  - /09.cd.md
 lessons:
   01.setup.md:
     title: セットアップ

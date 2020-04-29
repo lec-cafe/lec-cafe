@@ -9,6 +9,7 @@
     "build:nuxtjs_website": "vuepress build lessons/nuxtjs_website",
     "build:nuxtjs_forms": "vuepress build lessons/nuxtjs_forms",
     "build:nuxtjs_blog": "vuepress build lessons/nuxtjs_blog",
+    "build:sls_restapi": "vuepress build lessons/sls_restapi",
     "lint": "textlint ./books/**/*.md",
     "lintfix": "textlint --fix ./lessons/**/**/**/*.md"
   },
