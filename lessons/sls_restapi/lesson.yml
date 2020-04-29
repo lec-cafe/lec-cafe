@@ -43,12 +43,16 @@ lessons:
     title: Serverless Stage の利用
     description: |
       stage を利用した、Serverless の環境構成
-  07.cd.md:
-    title: GitHub Actions による CD 環境構築
+  07.stage.md:
+    title: Serverless Stage の利用
     description: |
-      GitHub Actions を利用した CD 環境の構築
+      Serverless Stage の利用
   08.events.md:
     title: AWS Scheduler の利用
+    description: |
+      GitHub Actions を利用した CD 環境の構築
+  09.cd.md:
+    title: GitHub Actions による CD 環境構築
     description: |
       GitHub Actions を利用した CD 環境の構築
 
