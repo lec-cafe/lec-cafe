@@ -32,7 +32,7 @@ lessons:
     description: |
       serverless を利用した REST API の実装手法を確認していきましょう。
   04.restapi2.md:
-    title: 他のサービスとの結合
+    title: Connpass でイベント API の作成
     description: |
       REST API との連携等を通じて、より本格的なAPI 実装を進めていきます。
   05.restapi3.md:
