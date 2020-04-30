@@ -11,11 +11,9 @@ sidebar:
   - /02.serverless.md
   - /03.restapi.md
   - /04.restapi2.md
-  - /05.restapi3.md
-  - /06.restapi4.md
-  - /07.stage.md
-  - /08.events.md
-  - /09.cd.md
+  - /06.stage.md
+  - /07.events.md
+  - /08.cd.md
 lessons:
   01.setup.md:
     title: セットアップ
@@ -23,36 +21,28 @@ lessons:
       まずはじめに、serverless での開発を始めるための、
       AWS 環境のセットアップを始めましょう。
   02.serverless.md:
-    title: サンプル API のデプロイ
+    title: サンプルコード のデプロイ
     description: |
       serverless を利用して サンプルの API を作成しします。
       デプロイ & 実行 のフローを確認して、serverless の基本開発フローを学んでいきます。
   03.restapi.md:
-    title: API の実装
+    title: REST API の実装
     description: |
       serverless を利用した REST API の実装手法を確認していきましょう。
   04.restapi2.md:
-    title: Connpass でイベント API の作成
+    title: アプリケーションの開発
     description: |
       REST API との連携等を通じて、より本格的なAPI 実装を進めていきます。
-  05.restapi3.md:
-    title: REST API のカスタマイズ
-    description: |
-      CORS の対応など
   06.stage.md:
     title: Serverless Stage の利用
     description: |
       stage を利用した、Serverless の環境構成
-  07.stage.md:
-    title: Serverless Stage の利用
-    description: |
-      Serverless Stage の利用
-  08.events.md:
+  07.events.md:
     title: AWS Scheduler の利用
     description: |
       GitHub Actions を利用した CD 環境の構築
-  09.cd.md:
-    title: GitHub Actions による CD 環境構築
+  08.cd.md:
+    title: GitHub Actions による CD
     description: |
       GitHub Actions を利用した CD 環境の構築
 
